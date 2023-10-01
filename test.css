@@ -11,13 +11,17 @@ p {
 ul, ol {
     font-style: italic;
 }
-body {
-    overflow-x: hidden;
-}
+/*body {*/
+/*    overflow-x: hidden;*/
+/*}*/
 
 @media (max-width: 1000px) {
     .logo-image2 {
         display: none;
+    }
+    p {
+        color: #fcd512;
+        font-size: 60px;
     }
 
     /*.head-nav-bar {*/
