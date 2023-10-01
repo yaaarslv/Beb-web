@@ -11,8 +11,10 @@ p {
 ul, ol {
     font-style: italic;
 }
-
-@media only screen and (min-device-width: 480px) {
+body {
+    width: 100%;
+}
+@media only screen and (max-device-width: 981px) {
     .logo-image2 {
         display: none;
     }
