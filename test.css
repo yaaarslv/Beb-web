@@ -15,24 +15,6 @@ ul, ol {
 /*    overflow-x: hidden;*/
 /*}*/
 
-@media (max-width: 1000px) {
-    .logo-image2 {
-        display: none;
-    }
-    p {
-        color: #fcd512;
-        font-size: 60px;
-    }
-
-    /*.head-nav-bar {*/
-    /*    height: 42px;*/
-    /*    width: 100%;*/
-    /*    padding-top: 50px;*/
-    /*    align-content: center;*/
-    /*    margin: auto auto 40px;*/
-    /*}*/
-}
-
 body {
     background-image: url('font.jpg');
     background-size: cover;
@@ -139,4 +121,22 @@ form {
     height: 20px;
     display: block;
     margin: auto;
+}
+
+@media (max-width: 1000px) {
+    .logo-image2 {
+        display: none;
+    }
+    p {
+        color: #fcd512;
+        font-size: 60px;
+    }
+
+    /*.head-nav-bar {*/
+    /*    height: 42px;*/
+    /*    width: 100%;*/
+    /*    padding-top: 50px;*/
+    /*    align-content: center;*/
+    /*    margin: auto auto 40px;*/
+    /*}*/
 }
