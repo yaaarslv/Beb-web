@@ -11,10 +11,11 @@ p {
 ul, ol {
     font-style: italic;
 }
-header, main, footer  {
-    width: 100%;
+body {
+    overflow-x: hidden;
 }
-@media only screen and (max-device-width: 981px) {
+
+@media (max-width: 1000px) {
     .logo-image2 {
         display: none;
     }
