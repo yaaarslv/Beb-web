@@ -12,12 +12,16 @@ ul, ol {
     font-style: italic;
 }
 
-@media (max-width: 800px) {
-    .logo-image {
+@media screen and (max-width: 800px) {
+    .logo-image2 {
         display: none;
     }
-    .head-bar {
-        flex-direction: column;
+
+    .head-nav-bar {
+        height: 42px;
+        width: 200px;
+        padding-bottom: 70px;
+        margin: auto auto 40px;
     }
 }
 
@@ -52,40 +56,43 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row;
     text-transform: uppercase;
     font-size: 20px;
     margin-right: 1em;
 }
 
-.footer-bar, .head-bar {
-    background: #f30707;
-}
+/*.footer-nav-bar, .head-nav-bar {*/
+/*    background: #f30707;*/
+/*}*/
 
-.head-nav-bar, .footer-nav-bar, .nav-item a {
+.nav-item a {
     text-decoration: none;
     color: #000;
     transition: color 0.3s;
 }
 
-.head-nav-bar, .footer-nav-bar, .nav-item a:hover {
+.nav-item a:hover {
     color: #075af3;
 }
 
 .head-nav-bar {
     height: 42px;
     width: 400px;
+    align-content: center;
     margin: auto auto 40px;
 }
 
 .footer-nav-bar {
     height: 42px;
-    width: 800px;
+    width: 100%;
     margin: auto;
 }
 
 .nav-item {
     flex: auto;
     text-align: center;
+    background: #f30707;
 }
 
 form * {
