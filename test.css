@@ -12,6 +12,15 @@ ul, ol {
     font-style: italic;
 }
 
+@media (max-width: 750px) {
+    .logo-image {
+        display: none;
+    }
+    .head-bar {
+        flex-direction: column;
+    }
+}
+
 body {
     background-image: url('font.jpg');
     background-size: cover;
