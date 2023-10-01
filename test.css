@@ -11,7 +11,7 @@ p {
 ul, ol {
     font-style: italic;
 }
-body {
+header, main, footer  {
     width: 100%;
 }
 @media only screen and (max-device-width: 981px) {
