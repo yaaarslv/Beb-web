@@ -20,10 +20,6 @@ body {
     width: 100%;
 }
 
-.logo {
-    align-content: center;
-}
-
 .header-content {
     display: flex;
     flex-direction: row;
