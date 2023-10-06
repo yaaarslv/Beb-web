@@ -173,7 +173,6 @@ form * {
 
 .products, .popular-products {
     flex: 3;
-    padding: 10px;
     border: 1px solid #ffffff;
     border-radius: 5px;
 }
@@ -274,5 +273,15 @@ button {
 @media (max-width: 1000px) {
     .logo-image2 {
         display: none;
+    }
+
+    .products, .popular-products {
+        flex: 2;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+    }
+
+    .filters {
+        padding: 3px;
     }
 }
