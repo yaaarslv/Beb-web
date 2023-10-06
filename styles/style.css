@@ -120,6 +120,44 @@ form {
     margin: auto;
 }
 
+.product-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.filters {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
+.filters ul {
+    list-style: disc;
+    padding: 0;
+}
+
+.products, .popular-products {
+    flex: 3;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
+input[type="number"] {
+    width: 60px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 @media (max-width: 1000px) {
     .logo-image2 {
         display: none;
