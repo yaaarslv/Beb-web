@@ -20,7 +20,7 @@
 
     <div class="head-bar">
         <div class="search">
-            <form>
+            <form class="search-form" action="search-result.html" method="GET">
                 <label>
                     <input class="input" placeholder="Введите запрос">
                 </label>
@@ -28,6 +28,19 @@
                     <img src="images/search-icon.png" alt="Поиск">
                 </button>
             </form>
+        </div>
+
+        <div class="sign-in-cart">
+            <div class="user-button">
+                <form class="auth-form" action="auth.html">
+                    <button id="user-button">Войти</button>
+                </form>
+            </div>
+
+            <div class="cart-button">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count">0</span>
+            </div>
         </div>
 
         <div class="head-nav-bar">

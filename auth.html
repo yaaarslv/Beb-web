@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="keywords"
           content="интернет-магазин для домашних животных, корм для животных, игрушки для питомцев, товары для ухода за животными, зоотовары">
-    <title>Petshop - отзывы</title>
+    <title>Petshop - вход</title>
     <link rel="stylesheet" href="styles/style.css">
-    <!--        <link rel="stylesheet" href="styles/outlines.css">-->
+    <!--            <link rel="stylesheet" href="styles/outlines.css">-->
 </head>
 <body>
 <header>
@@ -19,30 +19,6 @@
     </div>
 
     <div class="head-bar">
-        <div class="search">
-            <form class="search-form" action="search-result.html" method="GET">
-                <label>
-                    <input class="input" placeholder="Введите запрос">
-                </label>
-                <button class="search">
-                    <img src="images/search-icon.png" alt="Поиск">
-                </button>
-            </form>
-        </div>
-
-        <div class="sign-in-cart">
-            <div class="user-button">
-                <form class="auth-form" action="auth.html">
-                    <button id="user-button">Войти</button>
-                </form>
-            </div>
-
-            <div class="cart-button">
-                <span class="cart-icon">🛒</span>
-                <span class="cart-count">0</span>
-            </div>
-        </div>
-
         <div class="head-nav-bar">
             <nav>
                 <b class="nav-item"><a href="catalog.html">Каталог</a></b>
@@ -53,33 +29,22 @@
     </div>
 </header>
 <main>
-    <div class="reviews">
-        <h2>Отзывы:</h2>
-        <div class="review">
-            <div>
-                <b class="reviewer">Алина Павловна</b>
-                <div class="review-text">
-                    Это самый замечательный сайт для животных из тех, что я видела!
-                </div>
+    <div class="login-form">
+        <h2>Войти в аккаунт</h2>
+        <form>
+            <div class="form-group">
+                <b><label for="username">Логин:</label></b>
+                <input class="login-input" type="text" id="username" name="username" placeholder="Введите логин" required>
             </div>
-        </div>
-        <div class="review">
-            <div>
-                <b class="reviewer">Ярослав Викторович</b>
-                <div class="review-text">
-                    Как создатель сайта, я имею право оставить здесь положительный отзыв!
-                </div>
+            <div class="form-group">
+                <b><label for="password">Пароль:</label></b>
+                <input class="password-input" type="password" id="password" name="password" placeholder="Введите пароль" required>
             </div>
-        </div>
-        <div class="review">
-            <div>
-                <b class="reviewer">Анфиса Александровна</b>
-                <div class="review-text">
-                    Сайт очень удобный! Я смогла заказать корм для своей кошки МАПочки, и он ей очень понравился!!! Кстати, пользуясь случаем, поздравляю всех с прошедшим днём учителя!
-                </div>
-            </div>
-        </div>
+            <button class="login-button" type="submit">Войти</button>
+        </form>
+        <p class="register-link">Еще нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
     </div>
+
 </main>
 <footer>
     <section>

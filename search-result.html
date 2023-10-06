@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="keywords"
           content="интернет-магазин для домашних животных, корм для животных, игрушки для питомцев, товары для ухода за животными, зоотовары">
-    <title>Petshop - отзывы</title>
+    <title>Petshop - найденное</title>
     <link rel="stylesheet" href="styles/style.css">
     <!--        <link rel="stylesheet" href="styles/outlines.css">-->
 </head>
@@ -53,31 +53,34 @@
     </div>
 </header>
 <main>
-    <div class="reviews">
-        <h2>Отзывы:</h2>
-        <div class="review">
-            <div>
-                <b class="reviewer">Алина Павловна</b>
-                <div class="review-text">
-                    Это самый замечательный сайт для животных из тех, что я видела!
-                </div>
-            </div>
+    <div class="product-filter">
+        <div class="popular-products">
+            <h2>По вашему запросу найдено:</h2>
+            <p><b>Здесь будут найденные товары!</b></p>
         </div>
-        <div class="review">
-            <div>
-                <b class="reviewer">Ярослав Викторович</b>
-                <div class="review-text">
-                    Как создатель сайта, я имею право оставить здесь положительный отзыв!
-                </div>
-            </div>
-        </div>
-        <div class="review">
-            <div>
-                <b class="reviewer">Анфиса Александровна</b>
-                <div class="review-text">
-                    Сайт очень удобный! Я смогла заказать корм для своей кошки МАПочки, и он ей очень понравился!!! Кстати, пользуясь случаем, поздравляю всех с прошедшим днём учителя!
-                </div>
-            </div>
+        <div class="filters">
+            <h2>Фильтры:</h2>
+            <ul>
+                <li>
+                    <label for="filter-cat">Для кошек</label>
+                    <input type="checkbox" id="filter-cat">
+                </li>
+                <li>
+                    <label for="filter-dog">Для собак</label>
+                    <input type="checkbox" id="filter-dog">
+                </li>
+                <li>
+                    <label for="filter-parrot">Для попугаев</label>
+                    <input type="checkbox" id="filter-parrot">
+                </li>
+                <li>
+                    <label for="filter-turtle">Для черепах</label>
+                    <input type="checkbox" id="filter-turtle">
+                </li>
+                <li>Цена от: <label for="minPrice"></label><input type="number" id="minPrice"></li>
+                <li>Цена до: <label for="maxPrice"></label><input type="number" id="maxPrice"></li>
+            </ul>
+            <button class="applyFilters">Применить</button>
         </div>
     </div>
 </main>
