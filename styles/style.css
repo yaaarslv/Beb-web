@@ -278,6 +278,23 @@ button {
     display: none;
 }
 
+.error404 {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.error404-text {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 25px;
+    color: #ff2b06;
+}
+
 @media (max-width: 1000px) {
     .logo-image2 {
         display: none;
