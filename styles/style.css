@@ -80,6 +80,11 @@ nav {
     background: #f30707;
 }
 
+.nav-item.active {
+    border-bottom: 4px solid #3f3f3f;
+}
+
+
 form * {
     margin: initial;
 }
@@ -132,9 +137,13 @@ form * {
     position: relative;
 }
 
+.auth-button {
+    font-size: 18px;
+}
+
 .cart-button {
     position: relative;
-    top: 2px;
+    top: 6px;
     cursor: pointer;
 }
 
@@ -293,6 +302,18 @@ button {
     font-weight: bold;
     font-size: 25px;
     color: #ff2b06;
+}
+
+load-time {
+    background-color: #f3f3f3;
+    margin-left: 20px;
+    border-radius: 25px;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.load-time-text {
+    color: red;
 }
 
 @media (max-width: 1000px) {
