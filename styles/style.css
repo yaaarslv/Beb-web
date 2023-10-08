@@ -34,16 +34,17 @@ body {
 
 section:nth-child(even) {
     background-color: #d00858;
-    border-radius: 15px;
 }
 
 section:nth-child(odd) {
     background-color: #ffffff;
-    border-radius: 15px;
 }
+
 section {
+    border-radius: 15px;
     padding: 5px;
 }
+
 nav {
     display: flex;
     align-items: center;
