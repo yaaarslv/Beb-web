@@ -34,12 +34,16 @@ body {
 
 section:nth-child(even) {
     background-color: #d00858;
+    border-radius: 15px;
 }
 
 section:nth-child(odd) {
     background-color: #ffffff;
+    border-radius: 15px;
 }
-
+section {
+    padding: 5px;
+}
 nav {
     display: flex;
     align-items: center;
@@ -78,6 +82,7 @@ nav {
     flex: auto;
     text-align: center;
     background: #f30707;
+    border-radius: 25px;
 }
 
 .nav-item.active {
