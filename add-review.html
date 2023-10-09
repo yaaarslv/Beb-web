@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="keywords"
           content="интернет-магазин для домашних животных, корм для животных, игрушки для питомцев, товары для ухода за животными, зоотовары">
-    <title>Petshop - контакты</title>
+    <title>Petshop - добавить отзыв</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/nav.js"></script>
     <script src="scripts/loadTime.js"></script>
     <script src="scripts/checkAuth.js"></script>
     <script src="scripts/checkTimeout.js"></script>
-    <!--        <link rel="stylesheet" href="styles/outlines.css">-->
+    <!--            <link rel="stylesheet" href="styles/outlines.css">-->
 </head>
 <body>
 <header>
@@ -57,13 +56,24 @@
     </div>
 </header>
 <main>
-    <section>
-        <h2>Контакты:</h2>
-        <ul>
-            <li><a href="mailto:savenkovyaroslav53@gmail.com">savenkovyaroslav53@gmail.com</a></li>
-            <li><a href="tel:+79626595150">+79626595150</a></li>
-        </ul>
-    </section>
+    <div class="add-review-form">
+        <h2>Оставить отзыв</h2>
+        <form id="reviewForm">
+            <div class="form-group">
+                <b><label for="author">Автор:</label></b>
+                <input class="author-input" type="text" id="author" name="author" placeholder="Введите автора" required>
+            </div>
+
+            <div class="form-group">
+                <b><label for="review-text">Текст:</label></b>
+                <input class="text-input" type="text" id="review-text" name="review-text" placeholder="Введите текст" required>
+            </div>
+
+            <button class="review-button" type="submit">Отправить</button>
+        </form>
+
+        <script src="scripts/postReview.js"></script>
+    </div>
 </main>
 <footer>
     <section>

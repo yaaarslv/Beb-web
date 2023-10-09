@@ -7,9 +7,10 @@
     <title>Petshop - отзывы</title>
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/nav.js"></script>
-    <script src="scripts/load-time.js"></script>
+    <script src="scripts/loadTime.js"></script>
     <script src="scripts/checkAuth.js"></script>
     <script src="scripts/checkTimeout.js"></script>
+    <script src="scripts/getReviews.js"></script>
     <!--        <link rel="stylesheet" href="styles/outlines.css">-->
 </head>
 <body>
@@ -58,30 +59,12 @@
 </header>
 <main>
     <div class="reviews">
-        <h2>Отзывы:</h2>
-        <div class="review">
-            <div>
-                <b class="reviewer">Алина Павловна</b>
-                <div class="review-text">
-                    Это самый замечательный сайт для животных из тех, что я видела!
-                </div>
-            </div>
-        </div>
-        <div class="review">
-            <div>
-                <b class="reviewer">Ярослав Викторович</b>
-                <div class="review-text">
-                    Как создатель сайта, я имею право оставить здесь положительный отзыв!
-                </div>
-            </div>
-        </div>
-        <div class="review">
-            <div>
-                <b class="reviewer">Анфиса Александровна</b>
-                <div class="review-text">
-                    Сайт очень удобный! Я смогла заказать корм для своей кошки МАПочки, и он ей очень понравился!!!
-                </div>
-            </div>
+        <form action="add-review.html">
+            <h2>Отзывы:
+                <button class="add-review-button">Добавить отзыв</button>
+            </h2>
+        </form>
+        <div id="reviews-list">
         </div>
     </div>
 </main>

@@ -217,6 +217,10 @@ button {
     cursor: pointer;
 }
 
+.add-review-button {
+    font-size: 15px;
+}
+
 .review {
     border-radius: 5px;
 }
@@ -236,13 +240,14 @@ button {
 }
 
 .review-text {
+    padding-left: 9px;
     padding-bottom: 6px;
     font-weight: bold;
     font-size: 17px;
     font-family: Arial Narrow, serif;
 }
 
-.login-form, .register-form {
+.login-form, .register-form, .add-review-form {
     max-width: 300px;
     margin: 0 auto;
     padding: 30px;
@@ -259,6 +264,8 @@ button {
 }
 
 .login-input[type="text"],
+.author-input[type="text"],
+.text-input[type="text"],
 .password-input[type="password"],
 .email-input[type="email"]{
     width: 100%;
@@ -272,7 +279,7 @@ button {
     text-align: center;
 }
 
-.login-button {
+.login-button, .review-button {
     width: 150px;
     padding: 15px;
     background-color: #007BFF;
@@ -292,7 +299,7 @@ button {
     cursor: pointer;
 }
 
-.login-button:hover, .register-button {
+.login-button:hover, .register-button:hover, .review-button:hover {
     background-color: #0056b3;
 }
 
