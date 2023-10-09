@@ -139,6 +139,18 @@ form * {
     cursor: pointer;
 }
 
+.sign-out-button {
+    font-size: 18px;
+}
+
+.sign-out-cart {
+    position: absolute;
+    display: flex;
+    top: 242px;
+    right: 50px;
+    cursor: pointer;
+}
+
 .user-button {
     position: relative;
 }
