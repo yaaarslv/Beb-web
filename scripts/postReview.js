@@ -18,7 +18,7 @@ document.getElementById('reviewForm').addEventListener('submit', function (e) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert(data.message)
+                alert("Отзыв отправлен!")
                 window.location.href = 'reviews.html';
             } else {
                 alert('Ошибка: ' + data.error);
