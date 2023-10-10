@@ -8,7 +8,7 @@ document.getElementById('reviewForm').addEventListener('submit', function (e) {
         text: text
     };
 
-    fetch('http://127.0.0.1:5000/reviews', {
+    fetch('https://petshop-backend-yaaarslv.vercel.app/reviews', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

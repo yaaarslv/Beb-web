@@ -1,5 +1,5 @@
 async function fetchAndDisplayReviews() {
-    const response = await fetch('http://127.0.0.1:5000/reviews');
+    const response = await fetch('https://petshop-backend-yaaarslv.vercel.app/reviews');
     const data = await response.json();
     const reviewsList = document.getElementById('reviews-list');
 
