@@ -1,11 +1,44 @@
+document.getElementById('sendCodeButton').addEventListener('click', function () {
+    const email = document.getElementById('email').value;
+
+    if (email) {
+        const data = {
+            recipient: email
+        };
+        fetch('https://petshop-backend-yaaarslv.vercel.app/send_code', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Код подтверждения успешно отправлен на указанный адрес почты');
+                } else {
+                    alert('Ошибка при отправке кода подтверждения: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка: ' + error);
+            });
+    } else {
+        alert('Введите почту, чтобы отправить код подтверждения');
+    }
+});
+
 document.getElementById('registerForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const code = document.getElementById('code').value;
+
     const data = {
         email: email,
-        password: password
+        password: password,
+        code: code
     };
 
     fetch('https://petshop-backend-yaaarslv.vercel.app/register', {
