@@ -10,6 +10,7 @@
     <script src="scripts/loadTime.js"></script>
     <script src="scripts/checkAuth.js"></script>
     <script src="scripts/checkTimeout.js"></script>
+    <script src="scripts/signOut.js"></script>
     <!--        <link rel="stylesheet" href="styles/outlines.css">-->
 </head>
 <body>
@@ -57,10 +58,19 @@
     </div>
 </header>
 <main>
-    <section>
-        <h2>Подписка на рассылку:</h2>
-        <p><b>Здесь будет блок подписки пользователей на рассылку о появлении новых товаров и т.д.</b></p>
-    </section>
+    <div class="subscription-form">
+        <h2>Подписка на рассылку</h2>
+        <form id="subscriptionForm">
+            <div class="form-group">
+                <b><label for="email">Почта:</label></b>
+                <input class="email-input" type="email" id="email" name="email" maxlength="255" placeholder="Введите почту" required>
+            </div>
+
+            <button class="subscription-button" type="submit">Подписаться</button>
+        </form>
+
+        <script src="scripts/subscript.js"></script>
+    </div>
 </main>
 <footer>
     <section>

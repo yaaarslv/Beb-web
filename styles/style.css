@@ -247,7 +247,7 @@ button {
     font-family: Arial Narrow, serif;
 }
 
-.login-form, .register-form, .add-review-form {
+.login-form, .register-form, .add-review-form, .subscription-form {
     max-width: 300px;
     margin: 0 auto;
     padding: 30px;
@@ -284,7 +284,7 @@ button {
     width: 55%;
 }
 
-.login-button, .review-button {
+.login-button, .review-button, .subscription-button {
     width: 150px;
     padding: 15px;
     background-color: #007BFF;
