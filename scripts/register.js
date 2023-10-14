@@ -52,6 +52,7 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
         .then(data => {
             if (data.success) {
                 localStorage.setItem('token', data.token);
+                localStorage.setItem('role', data.role)
                 window.location.href = 'index.html';
             } else {
                 alert('Ошибка регистрации: ' + data.error);

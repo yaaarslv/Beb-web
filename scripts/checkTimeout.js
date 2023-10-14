@@ -2,6 +2,7 @@ let timeout;
 
 function resetSession() {
     localStorage.removeItem('token');
+    localStorage.removeItem('role')
 }
 
 function resetTimeout() {

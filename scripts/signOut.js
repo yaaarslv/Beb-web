@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         signOutButton.addEventListener('click', function (event) {
             event.preventDefault();
             localStorage.removeItem('token');
+            localStorage.removeItem('role')
             window.location.href = 'index.html';
         });
     }

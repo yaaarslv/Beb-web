@@ -10,6 +10,8 @@
     <script src="scripts/loadTime.js"></script>
     <script src="scripts/checkAuth.js"></script>
     <script src="scripts/checkTimeout.js"></script>
+    <script src="scripts/getNews.js"></script>
+    <script src="scripts/checkAdmin.js"></script>
     <!--        <link rel="stylesheet" href="styles/outlines.css">-->
 </head>
 <body>
@@ -57,10 +59,15 @@
     </div>
 </header>
 <main>
-    <section>
-        <h2>Новости:</h2>
-        <p><b>Здесь будут новости!</b></p>
-    </section>
+    <div class="news">
+        <form action="add-news.html">
+            <h2>Новости:
+<!--                <button class="add-news-button"></button>-->
+            </h2>
+        </form>
+        <div id="news-list">
+        </div>
+    </div>
 </main>
 <footer>
     <section>

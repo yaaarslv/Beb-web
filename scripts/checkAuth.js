@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const authForm = document.querySelector('.auth-form');
         authForm.action = 'profile.html'
     } else {
-        if (window.location.href.includes('profile.html') || window.location.href.includes('subscription.html')) {
+        if (window.location.href.includes('profile.html') || window.location.href.includes('subscription.html')  || window.location.href.includes('add-news.html')) {
             window.location.href = 'auth.html';
         }
     }
