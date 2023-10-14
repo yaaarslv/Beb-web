@@ -22,10 +22,10 @@ body {
 
 .header-content {
     display: flex;
-    flex-direction: row;
     align-items: center;
     text-align: center;
     justify-content: space-between;
+    padding-bottom: 30px;
 }
 
 .logo-image, .logo-image2 {
@@ -132,8 +132,8 @@ form * {
 }
 
 .sign-in-cart {
-    position: absolute;
     display: flex;
+    position: absolute;
     top: 242px;
     right: 50px;
     cursor: pointer;
@@ -348,7 +348,7 @@ button {
     color: #ff2b06;
 }
 
-load-time {
+.load-time {
     background-color: #f3f3f3;
     margin-left: 20px;
     border-radius: 25px;
@@ -360,9 +360,47 @@ load-time {
     color: red;
 }
 
+.loader {
+    font-size: 20px;
+}
+
 @media (max-width: 1000px) {
-    .logo-image2 {
+    .logo-image, .logo-image2 {
         display: none;
+    }
+
+    .logo-image3 {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .products, .popular-products {
+        flex: 2;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+    }
+
+    .filters {
+        padding: 3px;
+    }
+}
+
+@media (max-width: 700px) {
+    .logo-image, .logo-image2 {
+        display: none;
+    }
+
+    .logo-image3 {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .sign-in-cart {
+        display: flex;
+        position: relative;
+        top: 50px;
+        right: 0;
+        cursor: pointer;
     }
 
     .products, .popular-products {

@@ -1,25 +1,42 @@
 async function fetchAndDisplayReviews() {
-    const response = await fetch('https://petshop-backend-yaaarslv.vercel.app/reviews');
-    const data = await response.json();
-    const reviewsList = document.getElementById('reviews-list');
+    const loader = document.querySelector('.loader');
+    const errorMessageBox = document.querySelector('.error-message');
 
-    if (data.reviews) {
-        data.reviews.forEach((review) => {
-            const reviewDiv = document.createElement('div');
-            reviewDiv.className = 'review';
+    try {
+        loader.style.display = 'block';
+        errorMessageBox.style.display = 'none';
 
-            const authorDiv = document.createElement('div');
-            authorDiv.innerHTML = `<b class="reviewer">${review.author}</b>`;
+        const response = await fetch('https://petshop-backend-yaaarslv.vercel.app/reviews');
+        if (!response.ok) {
+            throw new Error(`Ошибка при загрузке данных: ${response.status} - ${response.statusText}`);
+        }
 
-            const textDiv = document.createElement('div');
-            textDiv.className = 'review-text';
-            textDiv.textContent = review.text;
+        const data = await response.json();
+        const reviewsList = document.getElementById('reviews-list');
 
-            reviewDiv.appendChild(authorDiv);
-            reviewDiv.appendChild(textDiv);
+        if (data.reviews) {
+            data.reviews.forEach((review) => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'review';
 
-            reviewsList.appendChild(reviewDiv);
-        });
+                const authorDiv = document.createElement('div');
+                authorDiv.innerHTML = `<b class="reviewer">${review.author}</b>`;
+
+                const textDiv = document.createElement('div');
+                textDiv.className = 'review-text';
+                textDiv.textContent = review.text;
+
+                reviewDiv.appendChild(authorDiv);
+                reviewDiv.appendChild(textDiv);
+
+                reviewsList.appendChild(reviewDiv);
+            });
+        }
+    } catch (error) {
+        console.error(error);
+        errorMessageBox.style.display = 'block';
+    } finally {
+        loader.style.display = 'none';
     }
 }
 

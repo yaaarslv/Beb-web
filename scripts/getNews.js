@@ -1,29 +1,46 @@
 async function fetchAndDisplayNews() {
-    const response = await fetch('https://petshop-backend-yaaarslv.vercel.app/news');
-    const data = await response.json();
-    const newsList = document.getElementById('news-list');
+    const loader = document.querySelector('.loader');
+    const errorMessageBox = document.querySelector('.error-message');
 
-    if (data.news) {
-        data.news.forEach((news_) => {
-            const newsDiv = document.createElement('div');
-            newsDiv.className = 'news_';
+    try {
+        loader.style.display = 'block';
+        errorMessageBox.style.display = 'none';
 
-            const subjectDiv = document.createElement('div');
-            subjectDiv.innerHTML = `<b class="news_subject">${news_.subject}</b>`;
+        const response = await fetch('https://petshop-backend-yaaarslv.vercel.app/news');
+        if (!response.ok) {
+            throw new Error(`Ошибка при загрузке данных: ${response.status} - ${response.statusText}`);
+        }
 
-            const textDiv = document.createElement('div');
-            textDiv.className = 'news-text';
-            textDiv.textContent = news_.text;
+        const data = await response.json();
+        const newsList = document.getElementById('news-list');
 
-            const dateDiv = document.createElement('div');
-            dateDiv.innerHTML = `<b class="news_date">${news_.date}</b>`;
+        if (data.news) {
+            data.news.forEach((news_) => {
+                const newsDiv = document.createElement('div');
+                newsDiv.className = 'news_';
 
-            newsDiv.appendChild(subjectDiv);
-            newsDiv.appendChild(textDiv);
-            newsDiv.appendChild(dateDiv);
+                const subjectDiv = document.createElement('div');
+                subjectDiv.innerHTML = `<b class="news_subject">${news_.subject}</b>`;
 
-            newsList.appendChild(newsDiv);
-        });
+                const textDiv = document.createElement('div');
+                textDiv.className = 'news-text';
+                textDiv.textContent = news_.text;
+
+                const dateDiv = document.createElement('div');
+                dateDiv.innerHTML = `<b class="news_date">${news_.date}</b>`;
+
+                newsDiv.appendChild(subjectDiv);
+                newsDiv.appendChild(textDiv);
+                newsDiv.appendChild(dateDiv);
+
+                newsList.appendChild(newsDiv);
+            });
+        }
+    } catch (error) {
+        console.error(error);
+        errorMessageBox.style.display = 'block';
+    } finally {
+        loader.style.display = 'none';
     }
 }
 
