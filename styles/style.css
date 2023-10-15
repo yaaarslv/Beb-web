@@ -339,6 +339,7 @@ button {
 
 .loading-text {
     font-size: 24px;
+    color: #0400de;
 }
 
 .error404, .error403 {
