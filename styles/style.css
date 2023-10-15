@@ -324,7 +324,7 @@ button {
 }
 
 
-.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover {
+.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover, .subscription-button:hover, .unsubscription-button:hover {
     background-color: #0056b3;
 }
 
