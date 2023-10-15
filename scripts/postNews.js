@@ -8,6 +8,9 @@ document.getElementById('newsForm').addEventListener('submit', function (e) {
         text: text
     };
 
+    const newsForm = document.getElementById('newsForm');
+    newsForm.classList.add('disabled');
+
     fetch('https://petshop-backend-yaaarslv.vercel.app/news', {
         method: 'POST',
         headers: {
@@ -22,6 +25,7 @@ document.getElementById('newsForm').addEventListener('submit', function (e) {
                 window.location.href = 'news.html';
             } else {
                 alert('Ошибка: ' + data.error);
+                newsForm.classList.remove('disabled');
             }
         })
         .catch(error => {

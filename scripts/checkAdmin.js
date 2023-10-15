@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = '403.html';
             }
         } else if (window.location.href.includes('news.html')) {
-            if (role === "Admin") {
+            if (role === "Admin" || role === "Superadmin") {
                 const newsForm = document.querySelector('h2');
                 const newsButton = document.createElement('button');
                 newsButton.className = 'add-news-button';

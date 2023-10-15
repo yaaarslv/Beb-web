@@ -8,6 +8,9 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
         password: password
     };
 
+    const loginForm = document.getElementById('loginForm');
+    loginForm.classList.add('disabled');
+
     fetch('https://petshop-backend-yaaarslv.vercel.app/login', {
         method: 'POST',
         headers: {
@@ -23,6 +26,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
                 window.location.href = 'index.html';
             } else {
                 alert('Ошибка входа: ' + data.error);
+                loginForm.classList.remove('disabled');
             }
         })
         .catch(error => {

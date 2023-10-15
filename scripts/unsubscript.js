@@ -1,4 +1,4 @@
-document.getElementById('subscriptionForm').addEventListener('submit', function (e) {
+document.getElementById('unsubscriptionForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const email = document.getElementById('email').value;
@@ -6,10 +6,10 @@ document.getElementById('subscriptionForm').addEventListener('submit', function 
         email: email,
     };
 
-    const subscriptionForm = document.getElementById('subscriptionForm');
-    subscriptionForm.classList.add('disabled');
+    const unsubscriptionForm = document.getElementById('unsubscriptionForm');
+    unsubscriptionForm.classList.add('disabled');
 
-    fetch('https://petshop-backend-yaaarslv.vercel.app/subscript', {
+    fetch('https://petshop-backend-yaaarslv.vercel.app/unsubscript', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -19,11 +19,11 @@ document.getElementById('subscriptionForm').addEventListener('submit', function 
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert("Подписка оформлена!")
+                alert("Подписка отменена!")
                 window.location.href = 'index.html';
             } else {
                 alert('Ошибка: ' + data.error);
-                subscriptionForm.classList.remove('disabled');
+                unsubscriptionForm.classList.remove('disabled');
             }
         })
         .catch(error => {

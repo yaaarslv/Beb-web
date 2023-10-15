@@ -5,6 +5,10 @@ document.getElementById('sendCodeButton').addEventListener('click', function () 
         const data = {
             recipient: email
         };
+
+        const code_button = document.getElementById("sendCodeButton")
+        code_button.disabled = true;
+
         fetch('https://petshop-backend-yaaarslv.vercel.app/send_code', {
             method: 'POST',
             headers: {
@@ -18,6 +22,7 @@ document.getElementById('sendCodeButton').addEventListener('click', function () 
                     alert('Код подтверждения успешно отправлен на указанный адрес почты');
                 } else {
                     alert('Ошибка при отправке кода подтверждения: ' + data.error);
+                    code_button.disabled = false;
                 }
             })
             .catch(error => {
@@ -41,6 +46,9 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
         code: code
     };
 
+    const registerForm = document.getElementById('registerForm');
+    registerForm.classList.add('disabled');
+
     fetch('https://petshop-backend-yaaarslv.vercel.app/register', {
         method: 'POST',
         headers: {
@@ -56,6 +64,7 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
                 window.location.href = 'index.html';
             } else {
                 alert('Ошибка регистрации: ' + data.error);
+                registerForm.classList.remove('disabled');
             }
         })
         .catch(error => {

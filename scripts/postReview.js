@@ -8,6 +8,9 @@ document.getElementById('reviewForm').addEventListener('submit', function (e) {
         text: text
     };
 
+    const reviewForm = document.getElementById('reviewForm');
+    reviewForm.classList.add('disabled');
+
     fetch('https://petshop-backend-yaaarslv.vercel.app/reviews', {
         method: 'POST',
         headers: {
@@ -22,6 +25,7 @@ document.getElementById('reviewForm').addEventListener('submit', function (e) {
                 window.location.href = 'reviews.html';
             } else {
                 alert('Ошибка: ' + data.error);
+                reviewForm.classList.remove('disabled');
             }
         })
         .catch(error => {
