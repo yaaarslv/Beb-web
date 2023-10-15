@@ -260,7 +260,7 @@ button {
     font-family: Arial Narrow, serif;
 }
 
-.login-form, .register-form, .add-review-form, .subscription-form, .add-news-form, .unsubscription-form {
+.login-form, .register-form, .add-review-form, .subscription-form, .add-news-form, .unsubscription-form, .recover-form {
     max-width: 300px;
     margin: 0 auto;
     padding: 30px;
@@ -280,6 +280,7 @@ button {
 .author-input[type="text"],
 .text-input[type="text"],
 .password-input[type="password"],
+.password-input[type="text"],
 .code-input[type="text"],
 .subject-input[type="text"],
 .email-input[type="email"]{
@@ -298,7 +299,7 @@ button {
     width: 55%;
 }
 
-.login-button, .review-button, .subscription-button, .news-button, .unsubscription-button {
+.login-button, .review-button, .subscription-button, .news-button, .unsubscription-button, .recover-button {
     width: 150px;
     padding: 15px;
     background-color: #007BFF;
@@ -324,11 +325,11 @@ button {
 }
 
 
-.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover, .subscription-button:hover, .unsubscription-button:hover {
+.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover, .subscription-button:hover, .unsubscription-button:hover, .recover-button:hover {
     background-color: #0056b3;
 }
 
-.register-link, .auth-link, .unsubscription-link {
+.register-link, .auth-link, .unsubscription-link, .recover-link {
     margin-top: 20px;
     font-size: 16px;
 }
