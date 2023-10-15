@@ -12,6 +12,7 @@
     <script src="scripts/checkTimeout.js"></script>
     <script src="scripts/getNews.js"></script>
     <script src="scripts/checkAdmin.js"></script>
+
     <!--        <link rel="stylesheet" href="styles/outlines.css">-->
 </head>
 <body>
@@ -66,12 +67,13 @@
         </form>
 
         <div class="loader" style="display: none;">
-            Загрузка...
+            <div class="loading-text">Загрузка</div>
         </div>
 
         <div id="news-list">
             <div class="error-message" style="display: none;">⚠ Что-то пошло не так</div>
         </div>
+        <script src="scripts/loading.js"></script>
     </div>
 </main>
 <footer>

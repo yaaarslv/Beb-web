@@ -337,6 +337,10 @@ button {
     display: none;
 }
 
+.loading-text {
+    font-size: 24px;
+}
+
 .error404, .error403 {
     max-width: 620px;
     margin: 0 auto;
