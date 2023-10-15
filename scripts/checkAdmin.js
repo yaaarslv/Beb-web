@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 manageRolesButton.textContent = "Управление пользователями";
                 manageRoles.appendChild(manageRolesButton);
             }
-        } else if (window.location.href.includes('manage-roles.html')) {
+        } else if (window.location.href.includes('manage-users.html')) {
             if (role === "User" || role === "Admin") {
                 window.location.href = '403.html';
             }
