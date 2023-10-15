@@ -217,7 +217,40 @@ button {
     cursor: pointer;
 }
 
-.add-review-button, .add-news-button {
+.userTable {
+    width: 98%;
+    border-collapse: collapse;
+    background-color: white;
+    /*margin-right: 10px; !* Добавляем отступ справа *!*/
+}
+
+.userTable th, .userTable td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+}
+
+.userTable tbody tr:nth-child(even) {
+    background-color: #0089de;
+}
+
+.userTable tbody tr:nth-child(odd) {
+    background-color: #ff0760;
+}
+
+.addUserButton {
+    display: block;
+    margin: 20px auto;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.add-review-button, .add-news-button, .manage-roles-button {
     font-size: 15px;
 }
 

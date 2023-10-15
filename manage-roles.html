@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="keywords"
           content="интернет-магазин для домашних животных, корм для животных, игрушки для питомцев, товары для ухода за животными, зоотовары">
-    <title>Petshop - личный кабинет</title>
+    <title>Petshop - управление ролями</title>
     <link rel="icon" href="images/logo2.jpg">
     <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/nav.js"></script>
     <script src="scripts/loadTime.js"></script>
     <script src="scripts/checkAuth.js"></script>
     <script src="scripts/checkTimeout.js"></script>
-    <script src="scripts/signOut.js"></script>
     <script src="scripts/checkAdmin.js"></script>
-    <!--                <link rel="stylesheet" href="styles/outlines.css">-->
+    <!--        <link rel="stylesheet" href="styles/outlines.css">-->
 </head>
 <body>
 <header>
@@ -36,13 +36,12 @@
             </form>
         </div>
 
-        <div class="sign-out-cart">
-            <div class="sing-out-button">
-                <form class="sign-out-form">
-                    <button class="sign-out-button">Выйти</button>
+        <div class="sign-in-cart">
+            <div class="user-button">
+                <form class="auth-form" action="auth.html">
+                    <button class="auth-button">Войти</button>
                 </form>
             </div>
-
 
             <div class="cart-button">
                 <span class="cart-icon">🛒</span>
@@ -60,10 +59,32 @@
     </div>
 </header>
 <main>
-    <form id="manageRoles" action="manage-roles.html"></form>
-    <section>
-        <h2>Добро пожаловать в личный кабинет!</h2>
-    </section>
+    <h1>Управление пользователями</h1>
+
+    <table class="userTable">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Роль</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody id="userTableBody">
+        </tbody>
+
+    </table>
+
+    <div class="loader" style="display: none;">
+        <div class="loading-text">Загрузка</div>
+    </div>
+
+    <script src="scripts/loading.js"></script>
+    <script src="scripts/load-users.js"></script>
+
+    <button onclick="addUser" class="addUserButton">Добавить пользователя</button>
+
+
 </main>
 <footer>
     <section>

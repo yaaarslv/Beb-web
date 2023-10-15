@@ -14,6 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 newsButton.textContent = "Добавить новость";
                 newsForm.appendChild(newsButton);
             }
+        } else if (window.location.href.includes('profile.html')) {
+            if (role === "Superadmin") {
+                const manageRoles = document.getElementById('manageRoles');
+                const manageRolesButton = document.createElement('button');
+                manageRolesButton.className = 'manage-roles-button';
+                manageRolesButton.textContent = "Управление пользователями";
+                manageRoles.appendChild(manageRolesButton);
+            }
+        } else if (window.location.href.includes('manage-roles.html')) {
+            if (role === "User" || role === "Admin") {
+                window.location.href = '403.html';
+            }
         }
     }
 });
