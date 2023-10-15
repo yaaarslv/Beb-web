@@ -328,7 +328,7 @@ button {
     background-color: #0056b3;
 }
 
-.register-link, .auth-link {
+.register-link, .auth-link, .unsubscription-link {
     margin-top: 20px;
     font-size: 16px;
 }
