@@ -66,6 +66,74 @@ async function changeRole(userId) {
     });
 }
 
+async function changeIsBanned(userId) {
+    const row = document.querySelector(`#user-${userId}`);
+    const isBannedCell = row.querySelector('.isBanned-cell');
+    const isBanned = isBannedCell.textContent;
+
+    const banButton = row.querySelector('.ban-button');
+    banButton.style.display = 'none';
+
+    const radios = document.createElement('div');
+    radios.className = 'isBanned-radios';
+
+    const banRadio = document.createElement('label');
+    banRadio.innerHTML = '<input type="radio" name="isBanned" value="true" ' + (isBanned === 'true' ? 'checked' : '') + '> Забанить';
+
+    const unbanRadio = document.createElement('label');
+    unbanRadio.innerHTML = '<input type="radio" name="isBanned" value="false" ' + (isBanned === 'false' ? 'checked' : '') + '> Разбанить';
+
+    const applyButton = document.createElement('button');
+    applyButton.textContent = 'Применить';
+
+    const cancelIsBannedButton = document.createElement('button');
+    cancelIsBannedButton.textContent = 'Отмена';
+
+    radios.appendChild(banRadio);
+    radios.appendChild(unbanRadio);
+    radios.appendChild(applyButton);
+    radios.appendChild(cancelIsBannedButton);
+
+    row.appendChild(radios);
+
+    cancelIsBannedButton.addEventListener('click', () => {
+        radios.style.display = 'none'
+        banButton.style.display = 'initial';
+        cancelIsBannedButton.style.display = "none"
+    });
+
+    applyButton.addEventListener('click', async () => {
+        const selectedIsBanned = radios.querySelector('input[name="isBanned"]:checked').value;
+
+        const data = {
+            userId: userId,
+            action: "change_user_is_banned",
+            isBanned: selectedIsBanned
+        };
+
+        await fetch(`https://petshop-backend-yaaarslv.vercel.app/users`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        }).then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message)
+                    isBannedCell.textContent = selectedIsBanned
+                } else {
+                    alert('Ошибка: ' + data.error);
+                }
+            }).catch(error => {
+                console.error('Ошибка: ' + error);
+            });
+
+        row.removeChild(radios)
+        banButton.style.display = 'initial';
+    });
+}
+
 async function deleteUser(userId) {
     const row = document.querySelector(`#user-${userId}`);
 
@@ -229,13 +297,15 @@ async function loadUserData() {
         if (userData.users) {
             userData.users.forEach(user => {
                 const row = document.createElement('tr');
-                row.id = `user-${user.id}`; // Устанавливаем id для строки
+                row.id = `user-${user.id}`;
                 row.innerHTML = `
                     <td class="id-cell">${user.id}</td>
                     <td class="email-cell">${user.email}</td>
                     <td class="role-cell">${user.role}</td>
+                    <td class="isBanned-cell">${user.isBanned}</td>
                     <td>
                         <button class="edit-button" onclick="changeRole('${user.id}')">Изменить роль</button>
+                        <button class="ban-button" onclick="changeIsBanned('${user.id}')">Управлять баном</button>
                         <button class="delete-button" onclick="deleteUser('${user.id}')">Удалить</button>
                     </td>
                 `;

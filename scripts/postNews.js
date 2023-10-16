@@ -1,5 +1,5 @@
 function is_valid_input(input) {
-    const pattern = /^[A-Za-zА-Яа-я0-9\s]+$/;
+    const pattern = /^[A-Za-zА-Яа-я0-9\s,.!?]+$/;
     return pattern.test(input);
 }
 

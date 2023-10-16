@@ -221,7 +221,6 @@ button {
     width: 98%;
     border-collapse: collapse;
     background-color: white;
-    /*margin-right: 10px; !* Добавляем отступ справа *!*/
 }
 
 .userTable th, .userTable td {
@@ -231,7 +230,7 @@ button {
 }
 
 .userTable tbody tr:nth-child(even) {
-    background-color: #0089de;
+    background-color: #5cff00;
 }
 
 .userTable tbody tr:nth-child(odd) {
