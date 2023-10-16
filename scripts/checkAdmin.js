@@ -57,6 +57,11 @@ getRoleFromServer().then(_ => {
             if (isBanned === "true") {
                 window.location.href = '403.html';
             }
+        } else if (window.location.href.includes('reviews.html')) {
+            if (isBanned === "true") {
+                const button = document.querySelector('.add-review-button');
+                button.style.backgroundColor = "#67000b"
+            }
         }
     }
 });
