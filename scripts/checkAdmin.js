@@ -17,15 +17,16 @@ async function getRoleFromServer() {
                 if (data.success) {
                     const role = data.role;
                     localStorage.setItem('role', role);
-                    return role;
+                    // return role;
                 }
             });
     }
 }
 
-getRoleFromServer().then(role => {
+getRoleFromServer().then(_ => {
     const token = localStorage.getItem('token');
     if (token) {
+        const role = localStorage.getItem('role')
         if (window.location.href.includes('add-news.html')) {
             if (role === "User") {
                 window.location.href = '403.html';
