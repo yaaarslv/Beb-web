@@ -53,7 +53,7 @@ getRoleFromServer().then(_ => {
             if (role === "User" || role === "Admin" || isBanned === "true") {
                 window.location.href = '403.html';
             }
-        } else if (window.location.href.includes('subscription.html')) {
+        } else if (window.location.href.includes('subscription.html') || window.location.href.includes('add-review.html')) {
             if (isBanned === "true") {
                 window.location.href = '403.html';
             }
