@@ -1,3 +1,8 @@
+function is_valid_input(input) {
+    const pattern = /^[A-Za-zА-Яа-я0-9\s]+$/;
+    return pattern.test(input);
+}
+
 document.getElementById('reviewForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -7,6 +12,11 @@ document.getElementById('reviewForm').addEventListener('submit', function (e) {
         author: author,
         text: text
     };
+
+    if (!is_valid_input(author) || !is_valid_input(text)) {
+        alert('Ошибка: Ввод содержит недопустимые символы.');
+        return;
+    }
 
     const reviewForm = document.getElementById('reviewForm');
     reviewForm.classList.add('disabled');
