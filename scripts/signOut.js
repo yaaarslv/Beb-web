@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             localStorage.removeItem('token');
             localStorage.removeItem('role')
+            localStorage.removeItem('isBanned')
             window.location.href = 'index.html';
         });
     }

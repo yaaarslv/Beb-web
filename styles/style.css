@@ -229,12 +229,16 @@ button {
     text-align: center;
 }
 
+.userTable thead tr {
+    background-color: #ff0000;
+}
+
 .userTable tbody tr:nth-child(even) {
-    background-color: #5cff00;
+    background-color: #d7d7d7;
 }
 
 .userTable tbody tr:nth-child(odd) {
-    background-color: #ff0760;
+    background-color: #8f8f8f;
 }
 
 .addUserButton {

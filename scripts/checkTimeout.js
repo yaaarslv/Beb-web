@@ -2,7 +2,8 @@ let timeout;
 
 function resetSession() {
     localStorage.removeItem('token');
-    localStorage.removeItem('role')
+    localStorage.removeItem('role');
+    localStorage.removeItem('isBanned');
 }
 
 function resetTimeout() {
