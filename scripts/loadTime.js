@@ -1,7 +1,7 @@
-(function() {
+(function () {
     var startTime = performance.now();
 
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         var endTime = performance.now();
         var loadTime = endTime - startTime;
 

@@ -1,7 +1,31 @@
-document.addEventListener("DOMContentLoaded", function () {
+async function getRoleFromServer() {
+    const token = localStorage.getItem("token");
+    if (token) {
+        const data = {
+            token: token
+        };
+
+        return fetch('https://petshop-backend-yaaarslv.vercel.app/checkRole', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const role = data.role;
+                    localStorage.setItem('role', role);
+                    return role;
+                }
+            });
+    }
+}
+
+getRoleFromServer().then(role => {
     const token = localStorage.getItem('token');
     if (token) {
-        const role = localStorage.getItem('role');
         if (window.location.href.includes('add-news.html')) {
             if (role === "User") {
                 window.location.href = '403.html';
