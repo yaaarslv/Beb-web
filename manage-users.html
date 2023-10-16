@@ -79,12 +79,27 @@
         <div class="loading-text">Загрузка</div>
     </div>
 
+    <button onclick="addUser()" class="addUserButton">Добавить пользователя</button>
+    <div class="add-user-form" style="display: none">
+        <form id="addUserForm">
+            <div class="form-group">
+                <b><label for="email">Почта:</label></b>
+                <input class="email-input" type="email" id="email" name="email" maxlength="255"
+                       placeholder="Введите почту" required>
+            </div>
+
+            <div class="form-group">
+                <b><label for="password">Пароль:</label></b>
+                <input class="password-input" type="password" id="password" name="password" maxlength="255"
+                       placeholder="Введите пароль" required>
+            </div>
+
+            <button class="add-user-button" type="submit">Добавить пользователя</button>
+            <p><button onclick="cancelAddUser()" class="cancel-add-user-button" type="submit">Отмена</button></p>
+        </form>
+    </div>
     <script src="scripts/loading.js"></script>
     <script src="scripts/load-users.js"></script>
-
-    <button onclick="addUser" class="addUserButton">Добавить пользователя</button>
-
-
 </main>
 <footer>
     <section>

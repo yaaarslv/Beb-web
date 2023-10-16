@@ -293,7 +293,7 @@ button {
     font-family: Arial Narrow, serif;
 }
 
-.login-form, .register-form, .add-review-form, .subscription-form, .add-news-form, .unsubscription-form, .recover-form {
+.login-form, .register-form, .add-review-form, .subscription-form, .add-news-form, .unsubscription-form, .recover-form, .add-user-form {
     max-width: 300px;
     margin: 0 auto;
     padding: 30px;
@@ -332,7 +332,11 @@ button {
     width: 55%;
 }
 
-.login-button, .review-button, .subscription-button, .news-button, .unsubscription-button, .recover-button {
+.cancel-add-user-button {
+    margin-top: 10px;
+}
+
+.login-button, .review-button, .subscription-button, .news-button, .unsubscription-button, .recover-button, .add-user-button {
     width: 150px;
     padding: 15px;
     background-color: #007BFF;
@@ -358,7 +362,7 @@ button {
 }
 
 
-.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover, .subscription-button:hover, .unsubscription-button:hover, .recover-button:hover {
+.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover, .subscription-button:hover, .unsubscription-button:hover, .recover-button:hover, .add-user-button:hover {
     background-color: #0056b3;
 }
 

@@ -18,11 +18,21 @@ async function changeRole(userId) {
     const applyButton = document.createElement('button');
     applyButton.textContent = 'Применить';
 
+    const cancelChangeRoleButton = document.createElement('button');
+    cancelChangeRoleButton.textContent = 'Отмена';
+
     radios.appendChild(userRadio);
     radios.appendChild(adminRadio);
     radios.appendChild(applyButton);
+    radios.appendChild(cancelChangeRoleButton);
 
     row.appendChild(radios);
+
+    cancelChangeRoleButton.addEventListener('click', () => {
+        radios.style.display = 'none'
+        editButton.style.display = 'initial';
+        cancelChangeRoleButton.style.display = "none"
+    });
 
     applyButton.addEventListener('click', async () => {
         const selectedRole = radios.querySelector('input[name="role"]:checked').value;
@@ -75,11 +85,21 @@ async function deleteUser(userId) {
     applyButton.textContent = 'Применить';
     applyButton.classList.add('disabled');
 
+    const cancelDeleteUserButton = document.createElement('button');
+    cancelDeleteUserButton.textContent = 'Отмена';
+
     radios.appendChild(yesRadio);
     radios.appendChild(noRadio);
     radios.appendChild(applyButton);
+    radios.appendChild(cancelDeleteUserButton);
 
     row.appendChild(radios);
+
+    cancelDeleteUserButton.addEventListener('click', () => {
+        radios.style.display = 'none'
+        deleteButton.style.display = 'initial';
+        cancelDeleteUserButton.style.display = "none"
+    });
 
     yesRadio.querySelector('input').addEventListener('change', () => {
         applyButton.classList.remove('disabled');
@@ -121,10 +141,73 @@ async function deleteUser(userId) {
     });
 }
 
-// Функция для добавления нового пользователя
+document.getElementById('addUserForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const data = {
+        email: email,
+        password: password,
+    };
+
+    const addUserForm = document.getElementById('addUserForm');
+    addUserForm.classList.add('disabled');
+
+    fetch('https://petshop-backend-yaaarslv.vercel.app/addUser', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const id = data.id;
+                const email = data.email;
+                const role = data.role;
+                const userTableBody = document.getElementById('userTableBody');
+                const row = document.createElement('tr');
+                row.id = `user-${id}`;
+                row.innerHTML = `
+                    <td class="id-cell">${id}</td>
+                    <td class="email-cell">${email}</td>
+                    <td class="role-cell">${role}</td>
+                    <td>
+                        <button class="edit-button" onclick="changeRole('${id}')">Изменить роль</button>
+                        <button class="delete-button" onclick="deleteUser('${id}')">Удалить</button>
+                    </td>
+                `;
+                userTableBody.appendChild(row);
+                cancelAddUser()
+
+            } else {
+                alert('Ошибка добавления пользователя: ' + data.error);
+                addUserForm.classList.remove('disabled');
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка: ' + error);
+        });
+});
+
 function addUser() {
-    // Здесь можно реализовать логику добавления нового пользователя с использованием API сервера
-    // Пример: открытие формы для ввода данных нового пользователя и добавление в таблицу
+    const addUserButton = document.querySelector('.addUserButton');
+    addUserButton.style.display = 'none'
+
+    const addUserForm = document.querySelector('.add-user-form');
+    addUserForm.style.display = 'block'
+
+}
+
+function cancelAddUser() {
+    const addUserForm = document.querySelector('.add-user-form');
+    addUserForm.style.display = 'none'
+
+    const addUserButton = document.querySelector('.addUserButton');
+    addUserButton.style.display = 'block'
 }
 
 
