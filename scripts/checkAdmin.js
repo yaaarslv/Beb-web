@@ -17,7 +17,6 @@ async function getRoleFromServer() {
                 if (data.success) {
                     const role = data.role;
                     localStorage.setItem('role', role);
-                    // return role;
                 }
             });
     }

@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const authForm = document.querySelector('.auth-form');
         authForm.action = 'profile.html'
     } else {
-        if (window.location.href.includes('manage-users.html') || window.location.href.includes('profile.html') || window.location.href.includes('subscription.html')  || window.location.href.includes('add-news.html')) {
+        if (window.location.href.includes('reviews.html')){
+            const button = document.querySelector('.add-review-button');
+            button.style.backgroundColor = "#ff001e"
+        } else if (window.location.href.includes('manage-users.html') || window.location.href.includes('profile.html') || window.location.href.includes('subscription.html')  || window.location.href.includes('add-news.html')) {
             window.location.href = 'auth.html';
         }
     }
