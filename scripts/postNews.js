@@ -21,7 +21,6 @@ document.getElementById('newsForm').addEventListener('submit', function (e) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert("Новость отправлена!")
                 window.location.href = 'news.html';
             } else {
                 alert('Ошибка: ' + data.error);
