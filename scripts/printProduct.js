@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (data.product) {
                         const product = data.product
                         const productDiv = document.createElement('div');
-                        productDiv.className = 'product';
+                        productDiv.className = 'productPage';
 
                         const nameDiv = document.createElement('div');
                         nameDiv.innerHTML = `<h3 class="product-name">${product.name}</h3>`;
