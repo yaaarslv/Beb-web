@@ -41,6 +41,14 @@ getRoleFromServer().then(_ => {
                 newsButton.textContent = "Добавить новость";
                 newsForm.appendChild(newsButton);
             }
+        } else if (window.location.href.includes('catalog.html')) {
+            if (role === "Admin" || role === "Superadmin") {
+                const productsForm = document.querySelector('h2');
+                const productButton = document.createElement('button');
+                productButton.className = 'add-product-button';
+                productButton.textContent = "Добавить товар";
+                productsForm.appendChild(productButton);
+            }
         } else if (window.location.href.includes('profile.html')) {
             if (role === "Superadmin") {
                 const manageRoles = document.getElementById('manageRoles');

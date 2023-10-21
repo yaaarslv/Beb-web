@@ -11,6 +11,7 @@
     <script src="scripts/nav.js"></script>
     <script src="scripts/loadTime.js"></script>
     <script src="scripts/checkAuth.js"></script>
+    <script src="scripts/checkAdmin.js"></script>
     <script src="scripts/checkTimeout.js"></script>
     <script src="scripts/getProducts.js"></script>
     <!--        <link rel="stylesheet" href="styles/outlines.css">-->
@@ -62,7 +63,11 @@
 <main>
     <div class="product-filter">
         <div class="products">
-            <h2>Товары:</h2>
+            <form action="add-product.html">
+                <h2>Товары:
+                </h2>
+            </form>
+
             <div class="loader" style="display: none;">
                 <div class="loading-text">Загрузка</div>
             </div>

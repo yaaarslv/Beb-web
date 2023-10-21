@@ -4,7 +4,7 @@ async function changeRole(userId) {
     const role = roleCell.textContent;
 
     const editButton = row.querySelector('.edit-button');
-    editButton.style.display = 'none'; // Скрыть кнопку "Изменить роль"
+    editButton.style.display = 'none';
 
     const radios = document.createElement('div');
     radios.className = 'role-radios';

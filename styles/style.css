@@ -251,7 +251,7 @@ button {
     cursor: pointer;
 }
 
-.add-review-button, .add-news-button, .manage-roles-button {
+.add-review-button, .add-news-button, .manage-roles-button, .add-product-button {
     font-size: 15px;
 }
 
@@ -294,7 +294,7 @@ button {
     font-family: Arial Narrow, serif;
 }
 
-.login-form, .register-form, .add-review-form, .subscription-form, .add-news-form, .unsubscription-form, .recover-form, .add-user-form {
+.login-form, .register-form, .add-review-form, .subscription-form, .add-news-form, .unsubscription-form, .recover-form, .add-user-form, .add-news-form {
     max-width: 300px;
     margin: 0 auto;
     padding: 30px;
@@ -313,6 +313,7 @@ button {
 .login-input[type="text"],
 .author-input[type="text"],
 .text-input[type="text"],
+.text-input[type="number"],
 .password-input[type="password"],
 .password-input[type="text"],
 .code-input[type="text"],
@@ -337,7 +338,7 @@ button {
     margin-top: 10px;
 }
 
-.login-button, .review-button, .subscription-button, .news-button, .unsubscription-button, .recover-button, .add-user-button {
+.login-button, .review-button, .subscription-button, .news-button, .unsubscription-button, .recover-button, .add-user-button, .send-product-button {
     width: 150px;
     padding: 15px;
     background-color: #007BFF;
@@ -363,7 +364,7 @@ button {
 }
 
 
-.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover, .subscription-button:hover, .unsubscription-button:hover, .recover-button:hover, .add-user-button:hover {
+.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover, .subscription-button:hover, .unsubscription-button:hover, .recover-button:hover, .add-user-button:hover, .send-product-button:hover {
     background-color: #0056b3;
 }
 
@@ -428,6 +429,7 @@ button {
 
 .product {
     border: 2px solid #e3e3e3;
+    border-radius: 30px;
     height: 470px;
     margin: 10px;
     padding: 10px;
@@ -436,6 +438,13 @@ button {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    background-color: #ffffff;
+    transition: 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 
 .productPage {
@@ -459,11 +468,6 @@ button {
 .product-price {
     font-weight: bold;
     color: #ff5733;
-}
-
-.product-image {
-    max-width: 100%;
-    height: 250px;
 }
 
 @media (max-width: 1000px) {
