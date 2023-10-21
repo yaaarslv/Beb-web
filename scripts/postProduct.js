@@ -48,23 +48,23 @@ document.getElementById('addProductForm').addEventListener('submit', function (e
     formData.append("rating", rating);
     formData.append("count", count);
     formData.append("imagefile", imagefile);
-    alert("По техническим шоколадкам загрузка пока недоступна")
-    // fetch('https://petshop-backend-yaaarslv.vercel.app/addProduct', {
-    //     method: 'POST',
-    //     body: formData
-    // })
-    //
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         if (data.success) {
-    //             alert(data.message)
-    //             window.location.href = 'catalog.html';
-    //         } else {
-    //             alert('Ошибка: ' + data.error);
-    //             addProductForm.classList.remove('disabled');
-    //         }
-    //     })
-    //     .catch(error => {
-    //         console.error('Ошибка: ' + error);
-    //     });
+
+    fetch('https://petshop-backend-yaaarslv.vercel.app/addProduct', {
+        method: 'POST',
+        body: formData
+    })
+
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message)
+                window.location.href = 'catalog.html';
+            } else {
+                alert('Ошибка: ' + data.error);
+                addProductForm.classList.remove('disabled');
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка: ' + error);
+        });
 });

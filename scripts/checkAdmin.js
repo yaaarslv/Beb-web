@@ -70,6 +70,10 @@ getRoleFromServer().then(_ => {
                 const button = document.querySelector('.add-review-button');
                 button.style.backgroundColor = "#67000b"
             }
+        } else if (window.location.href.includes('add-product.html')) {
+            if (role === "User" || isBanned === "true") {
+                window.location.href = '403.html';
+            }
         }
     }
 });
