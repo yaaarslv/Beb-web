@@ -493,6 +493,7 @@ button {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
     }
 
     .products, .popular-products {
@@ -528,6 +529,7 @@ button {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
     }
 
     .products, .popular-products {
