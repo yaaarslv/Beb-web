@@ -489,6 +489,12 @@ button {
         height: auto;
     }
 
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     .products, .popular-products {
         flex: 2;
         border: 1px solid #ffffff;
@@ -516,6 +522,12 @@ button {
         top: 50px;
         right: 0;
         cursor: pointer;
+    }
+
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .products, .popular-products {
