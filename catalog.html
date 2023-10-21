@@ -179,6 +179,28 @@
             </nav>
         </div>
     </div>
+    <p>Нажмите кнопку ниже, чтобы очистить кэш страницы:</p>
+    <button id="clearCacheButton">Очистить кэш</button>
+
+    <script>
+        // Обработчик клика на кнопку
+        document.getElementById('clearCacheButton').addEventListener('click', function() {
+            if ('caches' in window) {
+                // Очистка кэша с использованием Cache API
+                caches.keys().then(function(cacheNames) {
+                    cacheNames.forEach(function(cacheName) {
+                        caches.delete(cacheName);
+                    });
+                }).then(function() {
+                    console.log('Кэш страницы очищен');
+                }).catch(function(error) {
+                    console.error('Ошибка при очистке кэша:', error);
+                });
+            } else {
+                console.error('Браузер не поддерживает Cache API');
+            }
+        });
+    </script>
     <div class="logo">
             <pre>
 
