@@ -7,6 +7,8 @@ async function fetchAndDisplayProducts() {
         loader.style.display = 'block';
         errorMessageBox.style.display = 'none';
 
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
         const response = await fetch('https://petshop-backend-yaaarslv.vercel.app/products');
         if (!response.ok) {
             throw new Error(`Ошибка при загрузке данных: ${response.status} - ${response.statusText}`);

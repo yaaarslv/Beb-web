@@ -382,6 +382,16 @@ button {
     color: #0400de;
 }
 
+.running-cat-container {
+    position: relative;
+}
+
+.running-cat {
+    width: 200px;
+    max-height: none;
+    max-width: none;
+}
+
 .error404, .error403 {
     max-width: 620px;
     margin: 0 auto;
