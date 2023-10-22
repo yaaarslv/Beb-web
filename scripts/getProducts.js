@@ -53,11 +53,17 @@ async function fetchAndDisplayProducts() {
                 availabilityDiv.textContent = `${product.availability ? 'Да' : 'Нет в наличии'}`;
                 availabilityDiv.style.display = `${product.availability ? 'none' : 'initial'}`;
 
+                const countDiv = document.createElement('div');
+                countDiv.className = 'product-countDiv';
+                countDiv.textContent = `${product.count === 1 ? "Последний товар!" : `Осталось: ${product.count}`}`;
+                countDiv.style.display = `${product.count === 0 ? 'none' : 'initial'}`;
+
                 productDiv.appendChild(imageDiv);
                 productDiv.appendChild(nameDiv);
                 productDiv.appendChild(priceDiv);
                 productDiv.appendChild(categoryDiv);
                 productDiv.appendChild(availabilityDiv);
+                productDiv.appendChild(countDiv);
                 productList.appendChild(productDiv);
 
                 const elements = [nameDiv, imageDiv];

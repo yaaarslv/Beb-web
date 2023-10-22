@@ -487,6 +487,13 @@ button {
     color: #ff2b00;
 }
 
+.product-countDiv {
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+    color: #8e05ff;
+}
+
 @media (max-width: 1000px) {
     .logo-image, .logo-image2 {
         display: none;
