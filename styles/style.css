@@ -198,7 +198,7 @@ form * {
     padding: 0;
 }
 
-.products, .popular-products {
+.products, .best-products {
     flex: 3;
     border: 1px solid #ffffff;
     border-radius: 5px;
@@ -496,7 +496,7 @@ button {
         align-items: center;
     }
 
-    .products, .popular-products {
+    .products, .best-products {
         flex: 2;
         border: 1px solid #ffffff;
         border-radius: 5px;
@@ -532,7 +532,7 @@ button {
         align-items: center;
     }
 
-    .products, .popular-products {
+    .products, .best-products {
         flex: 2;
         border: 1px solid #ffffff;
         border-radius: 5px;
