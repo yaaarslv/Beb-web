@@ -253,8 +253,9 @@ button {
     cursor: pointer;
 }
 
-.add-review-button, .add-news-button, .manage-roles-button, .add-product-button {
+.add-review-button, .add-news-button, .manage-roles-button, .add-product-button, .manage-products-button {
     font-size: 15px;
+    margin-left: 2px;
 }
 
 .review, .news_ {
@@ -425,6 +426,15 @@ button {
 
 .loader {
     font-size: 20px;
+}
+
+.products-head {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-product-button, .manage-products-button {
+    position: relative;
 }
 
 .product-list {

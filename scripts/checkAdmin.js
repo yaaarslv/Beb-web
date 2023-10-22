@@ -43,11 +43,18 @@ getRoleFromServer().then(_ => {
             }
         } else if (window.location.href.includes('catalog.html')) {
             if (role === "Admin" || role === "Superadmin") {
-                const productsForm = document.querySelector('h2');
+                const productsForm = document.querySelector('.addProduct');
                 const productButton = document.createElement('button');
                 productButton.className = 'add-product-button';
                 productButton.textContent = "Добавить товар";
+
+                const manageProductsForm = document.querySelector('.manageProductsForm');
+                const manageProductsButton = document.createElement('button');
+                manageProductsButton.className = 'manage-products-button';
+                manageProductsButton.textContent = "Управлять товарами";
+
                 productsForm.appendChild(productButton);
+                manageProductsForm.appendChild(manageProductsButton);
             }
         } else if (window.location.href.includes('profile.html')) {
             if (role === "Superadmin") {

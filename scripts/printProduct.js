@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         const nameDiv = document.createElement('div');
                         nameDiv.innerHTML = `<h3 class="product-name">${product.name}</h3>`;
 
-                        const descriptionDiv = document.createElement('div');
-                        descriptionDiv.className = 'product-description';
-                        descriptionDiv.textContent = `Описание: ${product.description}`;
+                        // const descriptionDiv = document.createElement('div');
+                        // descriptionDiv.className = 'product-description';
+                        // descriptionDiv.textContent = `Описание: ${product.description}`;
 
                         const imageDiv = document.createElement('div');
                         imageDiv.innerHTML = `<img class="product-image" src="${product.imageURL}" alt="Product Image">`;
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         productDiv.appendChild(imageDiv);
                         productDiv.appendChild(nameDiv);
-                        productDiv.appendChild(descriptionDiv);
+                        // productDiv.appendChild(descriptionDiv);
                         productDiv.appendChild(priceDiv);
                         productDiv.appendChild(categoryDiv);
                         productDiv.appendChild(brandDiv);
