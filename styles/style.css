@@ -187,6 +187,7 @@ form * {
 }
 
 .filters {
+    background-color: #00ffeb;
     flex: 1;
     padding: 10px;
     border: 1px solid #ffffff;
@@ -199,6 +200,7 @@ form * {
 }
 
 .products, .best-products {
+    background-color: #d9d0de;
     flex: 3;
     border: 1px solid #ffffff;
     border-radius: 5px;
@@ -437,10 +439,11 @@ button {
 }
 
 .product {
+    margin: 18px 10px;
     border: 2px solid #e3e3e3;
     border-radius: 30px;
     height: auto;
-    margin: 10px;
+    /*margin: 10px;*/
     padding: 10px;
     width: 300px;
     display: flex;
@@ -471,12 +474,17 @@ button {
 .product-name {
     font-size: 1.2em;
     margin: 15px;
-
 }
 
 .product-price {
     font-weight: bold;
-    color: #ff5733;
+    color: #ff7053;
+}
+
+.product-availability {
+    font-size: 17px;
+    font-weight: bold;
+    color: #ff2b00;
 }
 
 @media (max-width: 1000px) {

@@ -48,10 +48,16 @@ async function fetchAndDisplayProducts() {
                 categoryDiv.textContent = product.category;
                 categoryDiv.style.display = 'none';
 
+                const availabilityDiv = document.createElement('div');
+                availabilityDiv.className = 'product-availability';
+                availabilityDiv.textContent = `${product.availability ? 'Да' : 'Нет в наличии'}`;
+                availabilityDiv.style.display = `${product.availability ? 'none' : 'initial'}`;
+
                 productDiv.appendChild(imageDiv);
                 productDiv.appendChild(nameDiv);
                 productDiv.appendChild(priceDiv);
                 productDiv.appendChild(categoryDiv);
+                productDiv.appendChild(availabilityDiv);
                 productList.appendChild(productDiv);
 
                 const elements = [nameDiv, imageDiv];
