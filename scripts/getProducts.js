@@ -43,9 +43,15 @@ async function fetchAndDisplayProducts() {
                 priceDiv.className = 'product-price';
                 priceDiv.textContent = `Цена: ${product.price} руб`;
 
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'product-category';
+                categoryDiv.textContent = product.category;
+                categoryDiv.style.display = 'none';
+
                 productDiv.appendChild(imageDiv);
                 productDiv.appendChild(nameDiv);
                 productDiv.appendChild(priceDiv);
+                productDiv.appendChild(categoryDiv);
                 productList.appendChild(productDiv);
 
                 const elements = [nameDiv, imageDiv];
@@ -67,4 +73,64 @@ async function fetchAndDisplayProducts() {
 }
 
 window.addEventListener('DOMContentLoaded', fetchAndDisplayProducts);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const filterButton = document.querySelector('.applyFilters')
+    filterButton.addEventListener('click', function () {
+        const selectedCategories = [];
+        if (document.getElementById('filter-cat').checked) {
+            selectedCategories.push('Для кошек');
+        }
+        if (document.getElementById('filter-dog').checked) {
+            selectedCategories.push('Для собак');
+        }
+        if (document.getElementById('filter-parrot').checked) {
+            selectedCategories.push('Для попугаев');
+        }
+        if (document.getElementById('filter-turtle').checked) {
+            selectedCategories.push('Для черепах');
+        }
+
+        const minPrice = parseInt(document.getElementById('minPrice').value, 10);
+        const maxPrice = parseInt(document.getElementById('maxPrice').value, 10);
+
+        const products = document.querySelectorAll('.product');
+        products.forEach(product => {
+            product.style.display = 'none';
+        });
+
+        products.forEach(product => {
+            const categoryName = product.querySelector('.product-category').textContent;
+            const price = parseInt(product.querySelector('.product-price').textContent.split(' ')[1], 10);
+
+            if (
+                (selectedCategories.length === 0 || selectedCategories.includes(categoryName)) &&
+                (!minPrice || price >= minPrice) &&
+                (!maxPrice || price <= maxPrice)
+            ) {
+                product.style.display = 'block';
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const resetFiltersButton = document.querySelector('.resetFiltersButton');
+
+    resetFiltersButton.addEventListener('click', function() {
+        document.getElementById('filter-cat').checked = false;
+        document.getElementById('filter-dog').checked = false;
+        document.getElementById('filter-parrot').checked = false;
+        document.getElementById('filter-turtle').checked = false;
+
+        document.getElementById('minPrice').value = '';
+        document.getElementById('maxPrice').value = '';
+
+        const products = document.querySelectorAll('.product');
+        products.forEach(product => {
+            product.style.display = 'initial';
+        });
+    });
+});
+
 
