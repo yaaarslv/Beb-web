@@ -23,6 +23,7 @@ document.getElementById('addProductForm').addEventListener('submit', function (e
     const rating = document.getElementById('product-rating').value;
     const count = document.getElementById('product-count').value;
     const imagefile = document.getElementById('product-image').files[0];
+    const token = localStorage.getItem('token');
 
     if (!is_valid_input(name) ||
         !is_valid_input(description) ||
@@ -48,6 +49,7 @@ document.getElementById('addProductForm').addEventListener('submit', function (e
     formData.append("rating", rating);
     formData.append("count", count);
     formData.append("imagefile", imagefile);
+    formData.append("token", token);
 
     fetch('https://petshop-backend-yaaarslv.vercel.app/addProduct', {
         method: 'POST',
