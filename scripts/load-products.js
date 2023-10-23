@@ -372,6 +372,72 @@ async function changeCount(productId) {
     });
 }
 
+async function changeImage(productId) {
+    const row = document.querySelector(`#product-${productId}`);
+    const imageCell = row.querySelector('.image-cell');
+
+    const actions = row.querySelector('.actions');
+    actions.style.display = 'none';
+
+    const newImage = document.createElement('div');
+    newImage.className = 'new-image';
+
+    const newImageFile = document.createElement('label');
+    newImageFile.innerHTML = '<input type="file" id="product-image" name="product-image" accept="image/*" required>'
+
+    const applyButton = document.createElement('button');
+    applyButton.textContent = 'Применить';
+
+    const cancelChangeImageButton = document.createElement('button');
+    cancelChangeImageButton.textContent = 'Отмена';
+
+    newImage.appendChild(newImageFile);
+    newImage.appendChild(applyButton);
+    newImage.appendChild(cancelChangeImageButton);
+
+    row.appendChild(newImage);
+
+    cancelChangeImageButton.addEventListener('click', () => {
+        newImage.style.display = 'none'
+        actions.style.display = 'revert';
+        cancelChangeImageButton.style.display = "none"
+    });
+
+    applyButton.addEventListener('click', async () => {
+        const selectedImage = newImage.querySelector('input[name="product-image"]').files[0];
+        if (!selectedImage){
+            alert("Фотография не загружена!")
+            return
+        }
+
+        let fileName = selectedImage.name;
+        let fileExtension = fileName.split(".")[fileName.split(".").length - 1];
+
+        const formData = new FormData();
+        formData.append("imagefile", selectedImage);
+        formData.append("productId", productId);
+        formData.append("action", "change_image");
+
+        await fetch(`https://petshop-backend-yaaarslv.vercel.app/products`, {
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message)
+                    imageCell.src = `https://petshop-backend-yaaarslv.vercel.app/images/${productId}.${fileExtension}`;
+                } else {
+                    alert('Ошибка: ' + data.error);
+                }
+            }).catch(error => {
+                console.error('Ошибка: ' + error);
+            });
+
+        row.removeChild(newImage)
+        actions.style.display = 'revert';
+    });
+}
+
 async function deleteProduct(productId) {
     const row = document.querySelector(`#product-${productId}`);
 
@@ -505,7 +571,7 @@ async function loadProductsData() {
                         <button class="edit-price-button" onclick="changePrice('${product.id}')">Изменить цену</button>
                         <button class="edit-category-button" onclick="changeCategory('${product.id}')">Изменить категорию</button>
                         <button class="edit-brand-button" onclick="changeBrand('${product.id}')">Изменить бренд</button>
-<!--                        <button class="edit-image-button" onclick="changeImage('${product.id}')">Изменить изображение</button>-->
+                        <button class="edit-image-button" onclick="changeImage('${product.id}')">Изменить изображение</button>
                         <button class="edit-count-button" onclick="changeCount('${product.id}')">Изменить количество</button>
                         <button class="delete-button" onclick="deleteProduct('${product.id}')">Удалить</button>
                     </td>
