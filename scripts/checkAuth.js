@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (window.location.href.includes('manage-users.html') ||
             window.location.href.includes('profile.html') || window.location.href.includes('subscription.html')  ||
             window.location.href.includes('add-news.html')  || window.location.href.includes('add-product.html') ||
-            window.location.href.includes('manage-products.html')) {
+            window.location.href.includes('manage-products.html') || window.location.href.includes('manage-news.html')) {
             window.location.href = 'auth.html';
         }
     }

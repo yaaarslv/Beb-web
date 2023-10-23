@@ -33,13 +33,24 @@ getRoleFromServer().then(_ => {
             if (role === "User" || isBanned === "true") {
                 window.location.href = '403.html';
             }
+        } else if (window.location.href.includes('manage-news.html')) {
+            if (role === "User" || isBanned === "true") {
+                window.location.href = '403.html';
+            }
         } else if (window.location.href.includes('news.html')) {
             if (role === "Admin" || role === "Superadmin") {
-                const newsForm = document.querySelector('h2');
+                const newsForm = document.querySelector('.addNews');
                 const newsButton = document.createElement('button');
                 newsButton.className = 'add-news-button';
                 newsButton.textContent = "Добавить новость";
+
+                const manageNewsForm = document.querySelector('.manageNewsForm');
+                const manageNewsFormButton = document.createElement('button');
+                manageNewsFormButton.className = 'manage-news-button';
+                manageNewsFormButton.textContent = "Управлять новостями";
+
                 newsForm.appendChild(newsButton);
+                manageNewsForm.appendChild(manageNewsFormButton);
             }
         } else if (window.location.href.includes('catalog.html')) {
             if (role === "Admin" || role === "Superadmin") {
