@@ -4,6 +4,7 @@ function resetSession() {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
     localStorage.removeItem('isBanned');
+    location.reload();
 }
 
 function resetTimeout() {

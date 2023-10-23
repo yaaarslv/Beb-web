@@ -81,6 +81,10 @@ getRoleFromServer().then(_ => {
             if (role === "User" || isBanned === "true") {
                 window.location.href = '403.html';
             }
+        }  else if (window.location.href.includes('manage-products.html')) {
+            if (role === "User" || isBanned === "true") {
+                window.location.href = '403.html';
+            }
         }
     }
 });
