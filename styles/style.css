@@ -191,19 +191,25 @@ form * {
     flex: 1;
     padding: 10px;
     border: 1px solid #ffffff;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
-.filters ul {
-    list-style: disc;
-    padding: 0;
+.filters h3 {
+    font-style: italic;
+    color: #dc0075;
 }
+
+.category-filters, .price-filters, .brand-filters {
+    border-bottom: 2px dashed #000;
+    margin-bottom: 10px;
+}
+
 
 .products, .best-products {
     background-color: #d9d0de;
     flex: 3;
     border: 1px solid #ffffff;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 input[type="number"] {
@@ -467,7 +473,6 @@ button {
     border: 2px solid #e3e3e3;
     border-radius: 30px;
     height: auto;
-    /*margin: 10px;*/
     padding: 10px;
     width: 300px;
     display: flex;
