@@ -50,18 +50,14 @@ async function changeName(productId) {
             return
         }
 
-        const data = {
-            productId: productId,
-            action: "change_name",
-            newName: selectedName
-        };
+        const formData = new FormData();
+        formData.append("newName", selectedName);
+        formData.append("productId", productId);
+        formData.append("action", "change_name");
 
         await fetch(`https://petshop-backend-yaaarslv.vercel.app/products`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+            body: formData
         }).then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -122,18 +118,14 @@ async function changePrice(productId) {
             return;
         }
 
-        const data = {
-            productId: productId,
-            action: "change_price",
-            newPrice: selectedPrice
-        };
+        const formData = new FormData();
+        formData.append("newPrice", selectedPrice);
+        formData.append("productId", productId);
+        formData.append("action", "change_price");
 
         await fetch(`https://petshop-backend-yaaarslv.vercel.app/products`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+            body: formData
         }).then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -198,18 +190,14 @@ async function changeCategory(productId) {
     applyButton.addEventListener('click', async () => {
         const selectedCategory = radios.querySelector('input[name="category"]:checked').value;
 
-        const data = {
-            productId: productId,
-            action: "change_category",
-            newCategory: selectedCategory
-        };
+        const formData = new FormData();
+        formData.append("newCategory", selectedCategory);
+        formData.append("productId", productId);
+        formData.append("action", "change_category");
 
         await fetch(`https://petshop-backend-yaaarslv.vercel.app/products`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+            body: formData
         }).then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -270,18 +258,14 @@ async function changeBrand(productId) {
             return
         }
 
-        const data = {
-            productId: productId,
-            action: "change_brand",
-            newBrand: selectedBrand
-        };
+        const formData = new FormData();
+        formData.append("newBrand", selectedBrand);
+        formData.append("productId", productId);
+        formData.append("action", "change_brand");
 
         await fetch(`https://petshop-backend-yaaarslv.vercel.app/products`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+            body: formData
         }).then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -347,18 +331,14 @@ async function changeCount(productId) {
             return;
         }
 
-        const data = {
-            productId: productId,
-            action: "change_count",
-            newCount: selectedCount
-        };
+        const formData = new FormData();
+        formData.append("newCount", selectedCount);
+        formData.append("productId", productId);
+        formData.append("action", "change_count");
 
         await fetch(`https://petshop-backend-yaaarslv.vercel.app/products`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+            body: formData
         }).then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -493,12 +473,13 @@ async function deleteProduct(productId) {
                 action: "delete_product",
             };
 
+            const formData = new FormData();
+            formData.append("productId", productId);
+            formData.append("action", "delete_product");
+
             await fetch(`https://petshop-backend-yaaarslv.vercel.app/products`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
+                body: formData
             }).then(response => response.json())
                 .then(data => {
                     if (data.success) {
