@@ -1,6 +1,10 @@
 function is_valid_input(input) {
-    const pattern = /^[A-Za-zА-Яа-я0-9\s,.!?()]+$/;
-    return pattern.test(input);
+    const pattern = /^[ёA-Za-zА-Яа-я0-9\s,.!?()]+$/;
+    if (!pattern.test(input)) {
+        alert("Недопустимый символ: " + input.match(/[^ёA-Za-zА-Яа-я0-9\s,.!?()]/)[0]);
+        return false;
+    }
+    return true;
 }
 
 document.getElementById('addProductForm').addEventListener('submit', function (e) {
