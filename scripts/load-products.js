@@ -18,7 +18,7 @@ async function changeName(productId) {
     newName.className = 'new-name';
 
     const newNameText = document.createElement('label');
-    newNameText.innerHTML = '<input class="productTable-input" type="text" id="newName" name="newName" maxlength="255" placeholder="Введите новое название" required>';
+    newNameText.innerHTML = '<textarea class="productTable-input" type="text" id="newName" name="newName" maxlength="255" placeholder="Введите новое название" required>';
 
     const applyButton = document.createElement('button');
     applyButton.textContent = 'Применить';
@@ -39,7 +39,7 @@ async function changeName(productId) {
     });
 
     applyButton.addEventListener('click', async () => {
-        const selectedName = newName.querySelector('input[name="newName"]').value;
+        const selectedName = newName.querySelector('textarea[name="newName"]').value;
         if (!selectedName){
             alert("Ввод пустой!")
             return
@@ -226,7 +226,7 @@ async function changeBrand(productId) {
     newBrand.className = 'new-brand';
 
     const newBrandText = document.createElement('label');
-    newBrandText.innerHTML = '<input class="productTable-input" type="text" id="newBrand" name="newBrand" maxlength="255" placeholder="Введите новый бренд" required>';
+    newBrandText.innerHTML = '<textarea class="productTable-input" type="text" id="newBrand" name="newBrand" maxlength="255" placeholder="Введите новый бренд" required>';
 
     const applyButton = document.createElement('button');
     applyButton.textContent = 'Применить';
@@ -247,7 +247,7 @@ async function changeBrand(productId) {
     });
 
     applyButton.addEventListener('click', async () => {
-        const selectedBrand = newBrand.querySelector('input[name="newBrand"]').value;
+        const selectedBrand = newBrand.querySelector('textarea[name="newBrand"]').value;
         if (!selectedBrand){
             alert("Ввод пустой!")
             return

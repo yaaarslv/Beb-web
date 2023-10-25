@@ -18,7 +18,7 @@ async function changeSubject(newsId) {
     newSubject.className = 'new-subject';
 
     const newSubjectText = document.createElement('label');
-    newSubjectText.innerHTML = '<input class="newsTable-input" type="text" id="newSubject" name="newSubject" maxlength="255" placeholder="Введите новый заголовок" required>';
+    newSubjectText.innerHTML = '<textarea class="newsTable-input" type="text" id="newSubject" name="newSubject" maxlength="255" placeholder="Введите новый заголовок" required>';
 
     const applyButton = document.createElement('button');
     applyButton.textContent = 'Применить';
@@ -39,7 +39,7 @@ async function changeSubject(newsId) {
     });
 
     applyButton.addEventListener('click', async () => {
-        const selectedSubject = newSubject.querySelector('input[name="newSubject"]').value;
+        const selectedSubject = newSubject.querySelector('textarea[name="newSubject"]').value;
         if (!selectedSubject){
             alert("Ввод пустой!")
             return
@@ -90,7 +90,7 @@ async function changeText(newsId) {
     newText.className = 'new-text';
 
     const newTextText = document.createElement('label');
-    newTextText.innerHTML = '<input class="newsTable-input" type="text" id="newText" name="newText" maxlength="255" placeholder="Введите новый текст" required>';
+    newTextText.innerHTML = '<textarea class="newsTable-input" type="text" id="newText" name="newText" maxlength="255" placeholder="Введите новый текст" required>';
 
     const applyButton = document.createElement('button');
     applyButton.textContent = 'Применить';
@@ -111,7 +111,7 @@ async function changeText(newsId) {
     });
 
     applyButton.addEventListener('click', async () => {
-        const selectedText = newText.querySelector('input[name="newText"]').value;
+        const selectedText = newText.querySelector('textarea[name="newText"]').value;
         if (!selectedText){
             alert("Ввод пустой!")
             return
