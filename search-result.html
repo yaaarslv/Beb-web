@@ -11,6 +11,8 @@
     <script src="scripts/loadTime.js"></script>
     <script src="scripts/checkAuth.js"></script>
     <script src="scripts/checkTimeout.js"></script>
+    <script src="scripts/searchScript.js"></script>
+    <script src="scripts/printProductsFromSearch.js"></script>
     <!--        <link rel="stylesheet" href="styles/outlines.css">-->
 </head>
 <body>
@@ -44,7 +46,7 @@
 
             <div class="cart-button">
                 <span class="cart-icon">🛒</span>
-                <span class="cart-count">0</span>
+<!--                <span class="cart-count">0</span>-->
             </div>
         </div>
 
@@ -59,9 +61,18 @@
 </header>
 <main>
     <div class="product-filter">
-        <div class="best-products">
+        <div class="found-products">
             <h2>По вашему запросу найдено:</h2>
-            <p><b>Здесь будут найденные товары!</b></p>
+            <div class="loader" >
+                <div class="running-cat-container">
+                    <img class="running-cat" src="./images/running-cat.gif" alt="Running Cat">
+                </div>
+                <div class="loading-text">Загрузка</div>
+            </div>
+
+            <div id="products-list" class="product-list">
+                <div class="error-message" style="display: none;">⚠ Что-то пошло не так</div>
+            </div>
         </div>
         <div class="filters">
             <h2>Фильтры:</h2>
@@ -109,6 +120,7 @@
             <button class="applyFilters">Применить</button>
             <button class="resetFiltersButton">Сбросить фильтры</button>
         </div>
+        <script src="scripts/loading.js"></script>
     </div>
 </main>
 <footer>
