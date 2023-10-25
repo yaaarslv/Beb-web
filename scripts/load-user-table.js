@@ -50,6 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
+
+
+
         const maxLessonsCount = document.getElementById('max-lessons-count');
         const count = maxLessonsCount.value;
 
@@ -58,6 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const savingArea = document.querySelector('.saving-area')
             savingArea.style.display = "block"
+
+            const saveAreas = document.querySelectorAll(".save-area")
+            if (saveAreas) {
+                saveAreas.forEach(area => {
+                    savingArea.removeChild(area)
+                })
+            }
 
             const saveArea = document.createElement("div")
             saveArea.className = "save-area"
@@ -133,7 +143,7 @@ function printUserTable(days, count) {
 
 
         if (days === 'six_days') {
-            row.innerHTML += `<td class="saturday"><input type="text" name="saturday-${i}"></td>`;
+            row.innerHTML += `<td class="saturday"><textarea type="text" name="saturday-${i}"></textarea></td>`;
         }
 
         tbody.appendChild(row);
