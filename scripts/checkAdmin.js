@@ -29,15 +29,15 @@ getRoleFromServer().then(_ => {
     if (token) {
         const role = localStorage.getItem('role')
         const isBanned = localStorage.getItem('isBanned')
-        if (window.location.href.includes('add-news.html')) {
+        if (window.location.href.includes('add-news')) {
             if (role === "User" || isBanned === "true") {
                 window.location.href = '403.html';
             }
-        } else if (window.location.href.includes('manage-news.html')) {
+        } else if (window.location.href.includes('manage-news')) {
             if (role === "User" || isBanned === "true") {
                 window.location.href = '403.html';
             }
-        } else if (window.location.href.includes('news.html')) {
+        } else if (window.location.href.includes('news')) {
             if (role === "Admin" || role === "Superadmin") {
                 const newsForm = document.querySelector('.addNews');
                 const newsButton = document.createElement('button');
@@ -52,7 +52,7 @@ getRoleFromServer().then(_ => {
                 newsForm.appendChild(newsButton);
                 manageNewsForm.appendChild(manageNewsFormButton);
             }
-        } else if (window.location.href.includes('catalog.html')) {
+        } else if (window.location.href.includes('catalog')) {
             if (role === "Admin" || role === "Superadmin") {
                 const productsForm = document.querySelector('.addProduct');
                 const productButton = document.createElement('button');
@@ -67,7 +67,7 @@ getRoleFromServer().then(_ => {
                 productsForm.appendChild(productButton);
                 manageProductsForm.appendChild(manageProductsButton);
             }
-        } else if (window.location.href.includes('profile.html')) {
+        } else if (window.location.href.includes('profile')) {
             if (role === "Superadmin") {
                 const manageRoles = document.getElementById('manageRoles');
                 const manageRolesButton = document.createElement('button');
@@ -75,24 +75,24 @@ getRoleFromServer().then(_ => {
                 manageRolesButton.textContent = "Управление пользователями";
                 manageRoles.appendChild(manageRolesButton);
             }
-        } else if (window.location.href.includes('manage-users.html')) {
+        } else if (window.location.href.includes('manage-users')) {
             if (role === "User" || role === "Admin" || isBanned === "true") {
                 window.location.href = '403.html';
             }
-        } else if (window.location.href.includes('subscription.html') || window.location.href.includes('add-review.html')) {
+        } else if (window.location.href.includes('subscription') || window.location.href.includes('add-review')) {
             if (isBanned === "true") {
                 window.location.href = '403.html';
             }
-        } else if (window.location.href.includes('reviews.html')) {
+        } else if (window.location.href.includes('reviews')) {
             if (isBanned === "true") {
                 const button = document.querySelector('.add-review-button');
                 button.style.backgroundColor = "#67000b"
             }
-        } else if (window.location.href.includes('add-product.html')) {
+        } else if (window.location.href.includes('add-product')) {
             if (role === "User" || isBanned === "true") {
                 window.location.href = '403.html';
             }
-        }  else if (window.location.href.includes('manage-products.html')) {
+        }  else if (window.location.href.includes('manage-products')) {
             if (role === "User" || isBanned === "true") {
                 window.location.href = '403.html';
             }
