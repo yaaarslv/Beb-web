@@ -7,6 +7,16 @@ function is_valid_input(input) {
     return true;
 }
 
+const token = localStorage.getItem('token');
+if (!token){
+    window.location.href = 'auth.html';
+}
+
+const isBanned = localStorage.getItem('isBanned');
+if (isBanned === "true") {
+    window.location.href = '403.html';
+}
+
 document.getElementById('reviewForm').addEventListener('submit', function (e) {
     e.preventDefault();
 

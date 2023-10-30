@@ -280,6 +280,17 @@ function cancelAddUser() {
 
 
 async function loadUserData() {
+    const token = localStorage.getItem('token');
+    if (!token){
+        window.location.href = 'auth.html';
+    }
+
+    const role = localStorage.getItem('role');
+    const isBanned = localStorage.getItem('isBanned');
+    if (role === "User" || isBanned === "true") {
+        window.location.href = '403.html';
+    }
+
     const loader = document.querySelector('.loader');
 
     try {

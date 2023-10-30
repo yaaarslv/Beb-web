@@ -1,7 +1,7 @@
 document.getElementById('unsubscriptionForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const email = document.getElementById('email').value;
+    const email = localStorage.getItem("email");
     const data = {
         email: email,
     };

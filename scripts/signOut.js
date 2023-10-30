@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem('token');
             localStorage.removeItem('role')
             localStorage.removeItem('isBanned')
+            localStorage.removeItem('email')
             window.location.href = 'index.html';
         });
     }

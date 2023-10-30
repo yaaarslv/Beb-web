@@ -24,6 +24,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('role', data.role)
                 localStorage.setItem('isBanned', data.isBanned)
+                localStorage.setItem('email', email)
                 window.location.href = 'index.html';
             } else {
                 alert('Ошибка входа: ' + data.error);

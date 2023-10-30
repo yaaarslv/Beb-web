@@ -7,6 +7,17 @@ function is_valid_input(input) {
     return true;
 }
 
+const token = localStorage.getItem('token');
+if (!token){
+    window.location.href = 'auth.html';
+}
+
+const role = localStorage.getItem('role');
+const isBanned = localStorage.getItem('isBanned');
+if (role === "User" || isBanned === "true") {
+    window.location.href = '403.html';
+}
+
 document.getElementById('newsForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
