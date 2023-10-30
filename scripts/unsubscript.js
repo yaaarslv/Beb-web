@@ -3,7 +3,7 @@ document.getElementById('unsubscriptionForm').addEventListener('submit', functio
     const emailConfirmed = localStorage.getItem("emailConfirmed");
     if (emailConfirmed === "false"){
         alert("Для отписки от уведомлений подтвердите почту в личном кабинете!")
-        window.location.href = "profile.html"
+        window.location.href = "profile.html?redirect=cancel-subscription.html"
     } else {
         const email = localStorage.getItem("email");
         const data = {

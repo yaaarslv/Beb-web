@@ -3,7 +3,7 @@ document.getElementById('subscriptionForm').addEventListener('submit', function 
     const emailConfirmed = localStorage.getItem("emailConfirmed");
     if (emailConfirmed === "false"){
         alert("Для подписки на уведомления подтвердите почту в личном кабинете!")
-        window.location.href = "profile.html"
+        window.location.href = "profile.html?redirect=subscription.html"
     } else {
         const email = localStorage.getItem("email");
         const data = {
