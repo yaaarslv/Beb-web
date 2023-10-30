@@ -4,6 +4,6 @@ document.querySelector('.add-review-button').addEventListener('click', function 
         window.location.href = "add-review.html"
     } else {
         alert("Чтобы отправить отзыв, войдите в аккаунт!")
-        window.location.href = 'auth.html';
+        window.location.href = 'auth.html?redirect=reviews.html';
     }
 });

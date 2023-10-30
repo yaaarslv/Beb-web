@@ -35,6 +35,9 @@ document.getElementById('sendRecoverCodeButton').addEventListener('click', funct
 
 document.getElementById('recoverForm').addEventListener('submit', function (e) {
     e.preventDefault();
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const redirect = urlParams.get('redirect');
 
     const email = document.getElementById('email').value;
     const code = document.getElementById('code').value;
@@ -87,7 +90,11 @@ document.getElementById('recoverForm').addEventListener('submit', function (e) {
                             .then(data => {
                                 if (data.success) {
                                     alert(data.message)
-                                    window.location.href = 'index.html';
+                                    if (redirect){
+                                        window.location.href = `${redirect}`;
+                                    } else{
+                                        window.location.href = "auth.html";
+                                    }
                                 } else {
                                     alert('Ошибка: ' + data.error);
                                     changePasswordForm.classList.remove('disabled');

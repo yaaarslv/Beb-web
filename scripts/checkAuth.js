@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href.includes('profile') || window.location.href.includes('subscription')  ||
             window.location.href.includes('add-news')  || window.location.href.includes('add-product') ||
             window.location.href.includes('manage-products') || window.location.href.includes('manage-news')) {
-            window.location.href = 'auth.html';
+            window.location.href = `auth.html?redirect=${window.location.href.split("/").pop()}`;
         }
     }
 });

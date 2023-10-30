@@ -41,6 +41,9 @@ document.getElementById('sendCodeButton').addEventListener('click', function () 
 
 document.getElementById('confirmEmailForm').addEventListener('submit', function (e) {
     e.preventDefault();
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const redirect = urlParams.get('redirect');
 
     const email = localStorage.getItem("email");
     const code = document.getElementById('code').value;
@@ -65,7 +68,11 @@ document.getElementById('confirmEmailForm').addEventListener('submit', function 
             if (data.success) {
                 alert("Почта успешно подтверждена!")
                 localStorage.setItem('emailConfirmed', data.emailConfirmed)
-                window.location.href = 'index.html';
+                if (redirect){
+                    window.location.href = `${redirect}`;
+                } else{
+                    window.location.href = "index.html";
+                }
             } else {
                 alert('Ошибка регистрации: ' + data.error);
                 confirmEmailForm.classList.remove('disabled');
