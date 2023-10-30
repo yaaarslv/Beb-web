@@ -48,7 +48,7 @@
 
             <div class="cart-button">
                 <span class="cart-icon">🛒</span>
-<!--                <span class="cart-count">0</span>-->
+                <!--                <span class="cart-count">0</span>-->
             </div>
         </div>
 
@@ -63,9 +63,19 @@
 </header>
 <main>
     <form id="manageRoles" action="manage-users.html"></form>
-    <section>
-        <h2>Добро пожаловать в личный кабинет!</h2>
-    </section>
+    <h2>Добро пожаловать в личный кабинет!</h2>
+    <div class="confirmEmail-form">
+        <form id="confirmEmailForm">
+            <div class="form-group">
+                <b><label for="code">Код подтверждения:</label></b>
+                <input class="code-input" type="text" id="code" name="code" placeholder="Введите код" required>
+                <button class="send-code-button" type="button" id="sendCodeButton">Отправить код</button>
+            </div>
+
+            <button class="confirmEmail-button" type="submit">Подтвердить почту</button>
+        </form>
+        <script src="scripts/confirmEmail.js"></script>
+    </div>
 </main>
 <footer>
     <section>

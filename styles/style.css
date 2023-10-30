@@ -322,6 +322,18 @@ button {
     text-align: center;
 }
 
+.confirmEmail-form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: none;
+}
+
 .saving-area, .loading-area {
     max-width: 300px;
     margin: 0 auto;
@@ -384,7 +396,7 @@ button {
     cursor: pointer;
 }
 
-.register-button {
+.register-button, .confirmEmail-button {
     width: 225px;
     padding: 15px;
     background-color: #007BFF;
@@ -400,7 +412,7 @@ button {
 }
 
 
-.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover, .subscription-button:hover, .unsubscription-button:hover, .recover-button:hover, .add-user-button:hover, .send-product-button:hover, .confirm-button:hover {
+.login-button:hover, .register-button:hover, .review-button:hover, .send-code-button:hover, .news-button:hover, .subscription-button:hover, .unsubscription-button:hover, .recover-button:hover, .add-user-button:hover, .send-product-button:hover, .confirm-button:hover, .confirmEmail-button:hover {
     background-color: #0056b3;
 }
 

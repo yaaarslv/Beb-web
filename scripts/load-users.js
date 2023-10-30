@@ -3,8 +3,8 @@ async function changeRole(userId) {
     const roleCell = row.querySelector('.role-cell');
     const role = roleCell.textContent;
 
-    const editButton = row.querySelector('.edit-button');
-    editButton.style.display = 'none';
+    const actions = row.querySelector('.actions');
+    actions.style.display = 'none';
 
     const radios = document.createElement('div');
     radios.className = 'role-radios';
@@ -15,6 +15,9 @@ async function changeRole(userId) {
     const adminRadio = document.createElement('label');
     adminRadio.innerHTML = '<input type="radio" name="role" value="Admin" ' + (role === 'Admin' ? 'checked' : '') + '> Admin';
 
+    const superAdminRadio = document.createElement('label');
+    superAdminRadio.innerHTML = '<input type="radio" name="role" value="Superadmin" ' + (role === 'Superadmin' ? 'checked' : '') + '> Superadmin';
+
     const applyButton = document.createElement('button');
     applyButton.textContent = 'Применить';
 
@@ -23,6 +26,7 @@ async function changeRole(userId) {
 
     radios.appendChild(userRadio);
     radios.appendChild(adminRadio);
+    radios.appendChild(superAdminRadio);
     radios.appendChild(applyButton);
     radios.appendChild(cancelChangeRoleButton);
 
@@ -30,7 +34,7 @@ async function changeRole(userId) {
 
     cancelChangeRoleButton.addEventListener('click', () => {
         radios.style.display = 'none'
-        editButton.style.display = 'initial';
+        actions.style.display = 'revert';
         cancelChangeRoleButton.style.display = "none"
     });
 
@@ -62,7 +66,7 @@ async function changeRole(userId) {
             });
 
         row.removeChild(radios)
-        editButton.style.display = 'initial';
+        actions.style.display = 'revert';
     });
 }
 
@@ -71,8 +75,8 @@ async function changeIsBanned(userId) {
     const isBannedCell = row.querySelector('.isBanned-cell');
     const isBanned = isBannedCell.textContent;
 
-    const banButton = row.querySelector('.ban-button');
-    banButton.style.display = 'none';
+    const actions = row.querySelector('.actions');
+    actions.style.display = 'none';
 
     const radios = document.createElement('div');
     radios.className = 'isBanned-radios';
@@ -98,7 +102,7 @@ async function changeIsBanned(userId) {
 
     cancelIsBannedButton.addEventListener('click', () => {
         radios.style.display = 'none'
-        banButton.style.display = 'initial';
+        actions.style.display = 'revert';
         cancelIsBannedButton.style.display = "none"
     });
 
@@ -130,15 +134,83 @@ async function changeIsBanned(userId) {
             });
 
         row.removeChild(radios)
-        banButton.style.display = 'initial';
+        actions.style.display = 'revert';
+    });
+}
+
+async function changeEmailConfirmed(userId) {
+    const row = document.querySelector(`#user-${userId}`);
+    const emailConfirmedCell = row.querySelector('.emailConfirmed-cell');
+    const emailConfirmed = emailConfirmedCell.textContent;
+
+    const actions = row.querySelector('.actions');
+    actions.style.display = 'none';
+
+    const radios = document.createElement('div');
+    radios.className = 'email-radios';
+
+    const confirmedRadio = document.createElement('label');
+    confirmedRadio.innerHTML = '<input type="radio" name="isConfirmed" value="true" ' + (emailConfirmed === 'true' ? 'checked' : '') + '> Подтверждена';
+
+    const notConfirmedRadio = document.createElement('label');
+    notConfirmedRadio.innerHTML = '<input type="radio" name="isConfirmed" value="false" ' + (emailConfirmed === 'false' ? 'checked' : '') + '> Не подтверждена';
+
+    const applyButton = document.createElement('button');
+    applyButton.textContent = 'Применить';
+
+    const cancelEmailButton = document.createElement('button');
+    cancelEmailButton.textContent = 'Отмена';
+
+    radios.appendChild(confirmedRadio);
+    radios.appendChild(notConfirmedRadio);
+    radios.appendChild(applyButton);
+    radios.appendChild(cancelEmailButton);
+
+    row.appendChild(radios);
+
+    cancelEmailButton.addEventListener('click', () => {
+        radios.style.display = 'none'
+        actions.style.display = 'revert';
+        cancelEmailButton.style.display = "none"
+    });
+
+    applyButton.addEventListener('click', async () => {
+        const selectedEmail = radios.querySelector('input[name="isConfirmed"]:checked').value;
+
+        const data = {
+            userId: userId,
+            action: "change_email_confirmed",
+            emailConfirmed: selectedEmail
+        };
+
+        await fetch(`https://petshop-backend-yaaarslv.vercel.app/users`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        }).then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message)
+                    emailConfirmedCell.textContent = selectedEmail
+                } else {
+                    alert('Ошибка: ' + data.error);
+                }
+            }).catch(error => {
+                console.error('Ошибка: ' + error);
+            });
+
+        row.removeChild(radios)
+        actions.style.display = 'revert';
     });
 }
 
 async function deleteUser(userId) {
     const row = document.querySelector(`#user-${userId}`);
 
-    const deleteButton = row.querySelector('.delete-button');
-    deleteButton.style.display = 'none'; // Скрыть кнопку "Изменить роль"
+    const actions = row.querySelector('.actions');
+    actions.style.display = 'none';
 
     const radios = document.createElement('div');
     radios.className = 'delete-radios';
@@ -165,7 +237,7 @@ async function deleteUser(userId) {
 
     cancelDeleteUserButton.addEventListener('click', () => {
         radios.style.display = 'none'
-        deleteButton.style.display = 'initial';
+        actions.style.display = 'revert';
         cancelDeleteUserButton.style.display = "none"
     });
 
@@ -204,7 +276,7 @@ async function deleteUser(userId) {
                 });
 
             row.removeChild(radios)
-            deleteButton.style.display = 'initial';
+            actions.style.display = 'revert';
         }
     });
 }
@@ -318,9 +390,10 @@ async function loadUserData() {
                     <td class="role-cell">${user.role}</td>
                     <td class="isBanned-cell">${user.isBanned}</td>
                     <td class="emailConfirmed-cell">${user.emailConfirmed}</td>
-                    <td>
+                    <td class="actions">
                         <button class="edit-button" onclick="changeRole('${user.id}')">Изменить роль</button>
                         <button class="ban-button" onclick="changeIsBanned('${user.id}')">Управлять баном</button>
+                        <button class="email-button" onclick="changeEmailConfirmed('${user.id}')">Управлять почтой</button>
                         <button class="delete-button" onclick="deleteUser('${user.id}')">Удалить</button>
                     </td>
                 `;

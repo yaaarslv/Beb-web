@@ -1,4 +1,9 @@
 document.getElementById('subscriptionForm').addEventListener('submit', function (e) {
+    const emailConfirmed = localStorage.getItem("emailConfirmed");
+    if (emailConfirmed === "false"){
+        alert("Для подписки на уведомления подтвердите почту в личном кабинете!")
+        window.location.href = "profile.html"
+    }
     e.preventDefault();
 
     const email = localStorage.getItem("email");
