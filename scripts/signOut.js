@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem('role')
             localStorage.removeItem('isBanned')
             localStorage.removeItem('email')
+            localStorage.removeItem('emailConfirmed')
             window.location.href = 'index.html';
         });
     }

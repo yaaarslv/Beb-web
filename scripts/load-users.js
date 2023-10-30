@@ -243,8 +243,11 @@ document.getElementById('addUserForm').addEventListener('submit', function (e) {
                     <td class="id-cell">${id}</td>
                     <td class="email-cell">${email}</td>
                     <td class="role-cell">${role}</td>
+                    <td class="isBanned-cell">false</td>
+                    <td class="emailConfirmed-cell">false</td>
                     <td>
                         <button class="edit-button" onclick="changeRole('${id}')">Изменить роль</button>
+                        <button class="ban-button" onclick="changeIsBanned('${id}')">Управлять баном</button>
                         <button class="delete-button" onclick="deleteUser('${id}')">Удалить</button>
                     </td>
                 `;
@@ -287,7 +290,7 @@ async function loadUserData() {
 
     const role = localStorage.getItem('role');
     const isBanned = localStorage.getItem('isBanned');
-    if (role === "User" || isBanned === "true") {
+    if (role === "User" || role === "Admin" || isBanned === "true") {
         window.location.href = '403.html';
     }
 
@@ -314,6 +317,7 @@ async function loadUserData() {
                     <td class="email-cell">${user.email}</td>
                     <td class="role-cell">${user.role}</td>
                     <td class="isBanned-cell">${user.isBanned}</td>
+                    <td class="emailConfirmed-cell">${user.emailConfirmed}</td>
                     <td>
                         <button class="edit-button" onclick="changeRole('${user.id}')">Изменить роль</button>
                         <button class="ban-button" onclick="changeIsBanned('${user.id}')">Управлять баном</button>

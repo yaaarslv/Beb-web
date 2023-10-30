@@ -5,6 +5,7 @@ function resetSession() {
     localStorage.removeItem('role');
     localStorage.removeItem('isBanned');
     localStorage.removeItem('email');
+    localStorage.removeItem('emailConfirmed');
     location.reload();
 }
 
