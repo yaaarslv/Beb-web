@@ -64,6 +64,7 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
                 localStorage.setItem('isBanned', data.isBanned)
                 localStorage.setItem('email', email)
                 localStorage.setItem('emailConfirmed', data.emailConfirmed)
+                localStorage.setItem('cart_id', data.cart_id)
                 window.location.href = 'index.html';
             } else {
                 alert('Ошибка регистрации: ' + data.error);

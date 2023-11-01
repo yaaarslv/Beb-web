@@ -6,6 +6,7 @@ function resetSession() {
     localStorage.removeItem('isBanned');
     localStorage.removeItem('email');
     localStorage.removeItem('emailConfirmed');
+    localStorage.removeItem('cart_id');
     location.reload();
 }
 

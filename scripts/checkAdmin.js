@@ -18,9 +18,11 @@ async function getRoleFromServer() {
                     const role = data.role;
                     const isBanned = data.isBanned;
                     const emailConfirmed = data.emailConfirmed;
+                    const cart_id = data.cart_id;
                     localStorage.setItem('role', role);
                     localStorage.setItem('isBanned', isBanned);
                     localStorage.setItem('emailConfirmed', emailConfirmed);
+                    localStorage.setItem('cart_id', cart_id);
                 }
             });
     }
