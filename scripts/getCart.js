@@ -222,7 +222,6 @@ function createProductElement(product) {
     elements.forEach((element) => {
         element.addEventListener('click', () => {
             const productId = product.productId;
-            alert(productId)
             window.open(`product.html?id=${productId}`);
         });
     });
