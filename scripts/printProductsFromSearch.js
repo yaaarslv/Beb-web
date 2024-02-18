@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(queryString);
     const search_term = urlParams.get('search-term');
 
+    const cart_id = localStorage.getItem("cart_id")
     const loaders = document.querySelectorAll('.loader');
     const errorMessageBox = document.querySelector('.error-message');
     const productList = document.querySelector('.product-list');
@@ -65,6 +66,182 @@ document.addEventListener("DOMContentLoaded", function () {
                             countDiv.className = 'product-countDiv';
                             countDiv.textContent = `${product.count === 1 ? "Последний товар!" : `Осталось: ${product.count}`}`;
                             countDiv.style.display = `${product.count === 0 ? 'none' : 'initial'}`;
+
+                            const cartItemIdDiv = document.createElement('div');
+                            cartItemIdDiv.className = 'product-cart_item_id';
+                            cartItemIdDiv.textContent = `${product.cart_item_id ? product.cart_item_id : 'None'}`;
+                            cartItemIdDiv.style.display = "none"
+
+                            const quantityDiv = document.createElement('div');
+                            quantityDiv.className = 'product-quantity';
+                            quantityDiv.textContent = `${product.quantity ? product.quantity : 'None'}`;
+                            quantityDiv.style.display = `${product.quantity ? "initial" : 'none'}`;
+
+                            const controlsDiv = document.createElement('div');
+                            controlsDiv.className = 'cart-product-controls';
+                            controlsDiv.style.display = `${product.quantity ? "initial" : 'none'}`;
+
+                            const decreaseButton = document.createElement('button');
+                            decreaseButton.textContent = '-';
+                            decreaseButton.className = 'decrease-quantity';
+                            if (quantityDiv.textContent == 1) {
+                                decreaseButton.style.backgroundColor = '#ff0000'
+                            }
+                            controlsDiv.appendChild(decreaseButton);
+
+                            controlsDiv.appendChild(quantityDiv);
+
+                            const increaseButton = document.createElement('button');
+                            increaseButton.textContent = '+';
+                            increaseButton.className = 'increase-quantity';
+                            if (quantityDiv.textContent === countDiv.textContent) {
+                                increaseButton.style.backgroundColor = '#ff0000'
+                            }
+                            controlsDiv.appendChild(increaseButton);
+
+                            const basketButton = document.createElement('button');
+                            basketButton.className = 'remove-cart-product-button';
+                            basketButton.textContent = '❌';
+                            controlsDiv.appendChild(basketButton);
+
+                            const addToCartButton = document.createElement('button');
+                            addToCartButton.className = 'add-to-cart-button';
+                            addToCartButton.textContent = 'В корзину';
+                            addToCartButton.style.fontSize = '25px';
+                            addToCartButton.style.display = `${product.quantity ? "none" : 'initial'}`;
+
+                            if (product.count === 0){
+                                addToCartButton.classList.add('disabled');
+                            }
+
+                            decreaseButton.addEventListener('click', async function () {
+                                let quantity = quantityDiv;
+                                if (quantity.textContent > 1) {
+                                    await new Promise(resolve => setTimeout(resolve, 200));
+                                    quantity.textContent--;
+                                    if (quantity.textContent == 1) {
+                                        decreaseButton.style.backgroundColor = '#ff0000'
+                                    }
+                                    increaseButton.style.backgroundColor = '#007BFF'
+
+                                    const editData = {
+                                        cartProductId: cartItemIdDiv.textContent,
+                                        newQuantity: quantity.textContent
+                                    };
+
+                                    return fetch('https://petshop-backend-yaaarslv.vercel.app/changeQuantity', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(editData)
+                                    })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (!data.success) {
+                                                alert(data.error)
+                                                quantity.textContent++;
+                                                decreaseButton.style.backgroundColor = '#007BFF'
+                                            }
+                                        });
+                                }
+                            });
+
+                            increaseButton.addEventListener('click', async function () {
+                                let quantity = quantityDiv;
+                                let count = parseInt(product.count);
+                                if (quantity.textContent < count) {
+                                    await new Promise(resolve => setTimeout(resolve, 200));
+                                    quantity.textContent++;
+                                    if (quantity.textContent == count) {
+                                        increaseButton.style.backgroundColor = '#ff0000'
+                                    }
+
+                                    if (quantity.textContent > 1) {
+                                        decreaseButton.style.backgroundColor = '#007BFF'
+                                    }
+                                    const editData = {
+                                        cartProductId: cartItemIdDiv.textContent,
+                                        newQuantity: quantity.textContent
+                                    };
+
+                                    return fetch('https://petshop-backend-yaaarslv.vercel.app/changeQuantity', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(editData)
+                                    })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (!data.success) {
+                                                alert(data.error)
+                                                quantity.textContent--;
+                                                increaseButton.style.backgroundColor = '#007BFF'
+                                                if (quantity.textContent == 1) {
+                                                    decreaseButton.style.backgroundColor = '#ff0000'
+                                                }
+
+                                            }
+                                        });
+                                }
+                            });
+
+                            basketButton.addEventListener('click', async function () {
+                                const removeData = {
+                                    cartProductId: cartItemIdDiv.textContent,
+                                };
+
+                                return fetch('https://petshop-backend-yaaarslv.vercel.app/deleteCartProduct', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(removeData)
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (!data.success) {
+                                            alert(data.error)
+                                        } else {
+                                            controlsDiv.style.display = 'none';
+                                            addToCartButton.style.display = 'initial';
+                                        }
+                                    });
+                            });
+
+                            addToCartButton.addEventListener('click', async function () {
+                                const editData = {
+                                    productId: product.id,
+                                    cart_id: cart_id
+                                };
+
+                                return fetch('https://petshop-backend-yaaarslv.vercel.app/addProductToCart', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(editData)
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (!data.success) {
+                                            alert(data.error)
+                                        } else {
+                                            const cart_item_id = data.cart_item_id;
+                                            let count = parseInt(product.count);
+                                            quantityDiv.textContent = "1";
+                                            quantityDiv.style.display = "initial";
+                                            decreaseButton.style.backgroundColor = '#ff0000'
+                                            if (quantityDiv.textContent == count) {
+                                                increaseButton.style.backgroundColor = '#ff0000'
+                                            }
+                                            cartItemIdDiv.textContent = cart_item_id;
+                                            addToCartButton.style.display = 'none';
+                                            controlsDiv.style.display = 'initial'
+                                        }
+                                    });
+                            });
 
                             productDiv.appendChild(imageDiv);
                             productDiv.appendChild(nameDiv);
